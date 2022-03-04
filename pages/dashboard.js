@@ -1,10 +1,10 @@
 import Head from 'next/head'
 // firebase
-import { useAuth } from '../context/AuthContext';
+import useAuth from '../context/AuthContext';
 
 const dashboard = () => {
 
-    const { user } = useAuth()
+    const user = useAuth()
 
     return (
         <>
