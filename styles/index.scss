@@ -49,3 +49,9 @@
 .firebaseui-card-content {
     padding: 0px !important;
 }
+
+.custom-li {
+    display: flex;
+    flex-direction: column;
+    gap: $base-padding * 5;
+}

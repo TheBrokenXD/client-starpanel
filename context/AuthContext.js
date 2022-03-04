@@ -22,9 +22,9 @@ export const AuthContextProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser({
-                uid: user.uid,
-                email: user.email,
-                displayName: user.displayName,
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
                 })
             } else {
                 setUser(null)
@@ -35,7 +35,7 @@ export const AuthContextProvider = ({children}) => {
         return () => unsubscribe()
     }, [])
 
-    const signUp = (email, password) => {
+    const signUp = async (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -43,13 +43,13 @@ export const AuthContextProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const signOut = async () => {
+    const logout = async () => {
         setUser(null)
         await signOut(auth)
     }
 
     return (
-        <AuthContext.Provider value={{ user, signIn, signUp, signOut }}>
+        <AuthContext.Provider value={{ user, signIn, signUp, logout }}>
             {loading ? null : children}
         </AuthContext.Provider>
     )

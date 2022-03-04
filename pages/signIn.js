@@ -3,29 +3,35 @@ import Link from "next/link"
 // react
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from "react";
+// firebase
 import { useAuth } from '../context/AuthContext';
-// firebase auth
-// import firebase, { auth } from "../firebase/clientApp";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from '../firebase/clientApp';
 
 const SignIn = () => {
 
     // google auth
 
-    // async function signInWithGoogle() {
-    //     const userCredentials = await firebase
-    //     .auth()
-    //     .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    const provider = new GoogleAuthProvider();
 
-    //     console.log({ ...userCredentials.user });
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential?.accessToken;
 
-    //     firebase.firestore().collection("users").doc(userCredentials.user.uid).set({
-    //         uid: userCredentials.user.uid,
-    //         email: userCredentials.user.email,
-    //         name: userCredentials.user.displayName,
-    //         provider: userCredentials.user.providerData[0].providerId,
-    //         photoUrl: userCredentials.user.photoURL,
-    //     });
-    // }
+            // user info
+            const user = result.user;
+            console.log({ credential, token, user });
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log({ errorCode, errorMessage, email, credential });
+        });
+    }
 
     // email pass auth
 
@@ -49,11 +55,11 @@ const SignIn = () => {
 
     }
 
-    // useEffect(() => {
-    //     if (user) {
-    //       router.push('/')
-    //     }
-    // }, [router, user])
+    useEffect(() => {
+        if (user) {
+          router.push('/')
+        }
+    }, [router, user])
 
     return (
         <>
@@ -89,7 +95,7 @@ const SignIn = () => {
                                     </div>
                                     <div className='display-f'>
                                         <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text mt-3 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
-                                        {/* <button onClick={() => signInWithGoogle()} className="custom-btn-rounded custom-text mt-3 ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button> */}
+                                        <button onClick={signInWithGoogle} className="custom-btn-rounded custom-text mt-3 ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
                                     </div>
                                 </form>
                             </div>

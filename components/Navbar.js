@@ -25,7 +25,7 @@ const Navbar = () => {
     
   }
 
-  const { user, signOut } = useAuth()
+  const { user, logout } = useAuth()
   const router = useRouter()
 
   return (
@@ -45,16 +45,22 @@ const Navbar = () => {
           <li><Link href="/" passHref><a className="font-xl custom-text custom-color-hover">Home</a></Link></li>
           <li>
             {user ? (
-              <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover" onClick={() => {
-                signOut()
-                router.push('/signIn')
-              }} >Sign out</a></Link>
+              <div className="custom-li">
+                <li><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover">Dashboard</a></Link></li>
+                <li><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
+                  logout()
+                  router.push('/signIn')
+                }} >Sign out</a></Link></li>
+              </div>
             ) : (
-              <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover">Sign In</a></Link>
+              <div className="custom-li">
+                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover">Sign Up</a></Link>
+                <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover">Sign In</a></Link>
+              </div>
             )}
           </li>
           <li><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover">Services</a></Link></li>
-          <li><Link href="#" passHref><a className="font-xl custom-text custom-color-hover">API</a></Link></li>
+          {/* <li><Link href="#" passHref><a className="font-xl custom-text custom-color-hover">API</a></Link></li> */}
         </ul>
       </div>
 
