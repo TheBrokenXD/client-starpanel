@@ -1,0 +1,682 @@
+@use 'sass:math';
+@use "sass:map";
+
+// utilities
+
+$utilities: (
+
+  // layout
+
+  "display": (
+    "prefix": "display",
+    "values": (
+      "n": none,
+      "b": block,
+      "f": flex,
+      "i": inline,
+      "i-b": inline-block,
+      "none": none
+    )
+  ),
+  "float": (
+    "prefix": "float",
+    "values": (
+      "right": right,
+      "left": left,
+      "none": none
+    )
+  ),
+  "overflow": (
+    "prefix": "overflow",
+    "values": (
+      "hidden": hidden,
+      "visible": visible,
+      "scroll": scroll,
+      "auto": auto
+    )
+  ),
+  "overflow-x": (
+    "prefix": "overflow-x",
+    "values": (
+      "hidden": hidden,
+      "visible": visible,
+      "scroll": scroll,
+      "auto": auto
+    )
+  ),
+  "overflow-y": (
+    "prefix": "overflow-y",
+    "values": (
+      "hidden": hidden,
+      "visible": visible,
+      "scroll": scroll,
+      "auto": auto
+    )
+  ),
+  "position": (
+    "prefix": "pos",
+    "values": (
+      "static": static,
+      "fixed": fixed,
+      "absolute": absolute,
+      "relative": relative,
+      "sticky": sticky
+    )
+  ),
+  "z-index": (
+    "prefix": "z",
+    "values": (
+      "auto": auto,
+      "neg-1": -1,
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+    )
+  ),
+
+  // flexbox and grid
+
+  "justify-content": (
+    "prefix": "justify",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly
+    )
+  ),
+  "justify-items": (
+    "prefix": "justify-i",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center
+    )
+  ),
+  "justify-self": (
+    "prefix": "justify-s",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center,
+      "auto": auto
+    )
+  ),
+  "align-content": (
+    "prefix": "align",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly
+    )
+  ),
+  "align-items": (
+    "prefix": "align-i",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center
+    )
+  ),
+  "align-self": (
+    "prefix": "align-s",
+    "values": (
+      "start": start,
+      "end": end,
+      "center": center,
+      "auto": auto
+    )
+  ),
+
+  // spacing
+
+  "padding": (
+    "prefix": "p",
+    "values": (
+      "0": 0,
+      "1": $base-padding,
+      "2": $base-padding * 2,
+      "3": $base-padding * 4,
+      "4": $base-padding * 6,
+      "5": $base-padding * 8,
+      "6": $base-padding * 10,
+      "7": $base-padding * 12,
+      "8": $base-padding * 14
+    ),
+  ),
+  "padding-left": (
+    "prefix": "pl",
+    "values": (
+      "0": 0,
+      "1": $base-padding,
+      "2": $base-padding * 2,
+      "3": $base-padding * 4,
+      "4": $base-padding * 6,
+      "5": $base-padding * 8,
+      "6": $base-padding * 10,
+      "7": $base-padding * 12,
+      "8": $base-padding * 14
+    ),
+  ),
+  "padding-right": (
+    "prefix": "pr",
+    "values": (
+      "0": 0,
+      "1": $base-padding,
+      "2": $base-padding * 2,
+      "3": $base-padding * 4,
+      "4": $base-padding * 6,
+      "5": $base-padding * 8,
+      "6": $base-padding * 10,
+      "7": $base-padding * 12,
+      "8": $base-padding * 14
+    ),
+  ),
+  "padding-top": (
+    "prefix": "pt",
+    "values": (
+      "0": 0,
+      "1": $base-padding,
+      "2": $base-padding * 2,
+      "3": $base-padding * 4,
+      "4": $base-padding * 6,
+      "5": $base-padding * 8,
+      "6": $base-padding * 10,
+      "7": $base-padding * 12,
+      "8": $base-padding * 14
+    ),
+  ),
+  "padding-bottom": (
+    "prefix": "pb",
+    "values": (
+      "0": 0,
+      "1": $base-padding,
+      "2": $base-padding * 2,
+      "3": $base-padding * 4,
+      "4": $base-padding * 6,
+      "5": $base-padding * 8,
+      "6": $base-padding * 10,
+      "7": $base-padding * 12,
+      "8": $base-padding * 14
+    ),
+  ),
+  "margin": (
+    "prefix": "m",
+    "values": (
+      "auto": auto,
+      "0": 0,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+      "7": $base-margin * 12,
+      "8": $base-margin * 14
+    ),
+  ),
+  "margin-left": (
+    "prefix": "ml",
+    "values": (
+      "auto": auto,
+      "0": 0,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+      "7": $base-margin * 12,
+      "8": $base-margin * 14
+    ),
+  ),
+  "margin-right": (
+    "prefix": "mr",
+    "values": (
+      "auto": auto,
+      "0": 0,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+      "7": $base-margin * 12,
+      "8": $base-margin * 14
+    ),
+  ),
+  "margin-top": (
+    "prefix": "mt",
+    "values": (
+      "auto": auto,
+      "0": 0,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+      "7": $base-margin * 12,
+      "8": $base-margin * 14
+    ),
+  ),
+  "margin-bottom": (
+    "prefix": "mb",
+    "values": (
+      "auto": auto,
+      "0": 0,
+      "1": $base-margin,
+      "2": $base-margin * 2,
+      "3": $base-margin * 4,
+      "4": $base-margin * 6,
+      "5": $base-margin * 8,
+      "6": $base-margin * 10,
+      "7": $base-margin * 12,
+      "8": $base-margin * 14
+    ),
+  ),
+
+  // sizing
+
+  "width": (
+    "prefix": "w",
+    "values": (
+      "half": 50%,
+      "full": 100%,
+      "screen": 100vw
+    )
+  ),
+  "min-width": (
+    "prefix": "min-w",
+    "values": (
+      "0": 0,
+      "half": 50%,
+      "full": 100%,
+    )
+  ),
+  "max-width": (
+    "prefix": "max-w",
+    "values": (
+      "0": 0,
+      "quarter": 25%,
+      "half": 50%,
+      "third": 75%,
+      "full": 100%,
+    )
+  ),
+  "height": (
+    "prefix": "h",
+    "values": (
+      "half": 50%,
+      "full": 100%,
+      "screen": 100vh
+    )
+  ),
+  "min-height": (
+    "prefix": "min-h",
+    "values": (
+      "0": 0,
+      "half": 50%,
+      "full": 100%,
+    )
+  ),
+  "max-height": (
+    "prefix": "max-h",
+    "values": (
+      "0": 0,
+      "quarter": 25%,
+      "half": 50%,
+      "third": 75%,
+      "full": 100%,
+    )
+  ),
+
+  // typography
+
+  "font-family": (
+    "prefix": "font-f",
+    "values": (
+      "base": $base-font,
+      "alt": $info-font
+    )
+  ),
+  "font-size": (
+    "prefix": "font",
+    "values": (
+      "xs": $xs-font-size,
+      "sm": $sm-font-size,
+      "md": $base-font-size,
+      "lg": $lg-font-size,
+      "xl": $xl-font-size,
+      "xl-2": $base-font-size * 2.75,
+      "xl-3": $base-font-size * 3,
+      "xl-4": $base-font-size * 4,
+      "xl-5": $base-font-size * 5,
+      "xl-6": $base-font-size * 6,
+      "xl-7": $base-font-size * 7,
+      "xl-8": $base-font-size * 8,
+    )
+  ),
+  "font-weight": (
+    "prefix": "fw",
+    "values": (
+      "reg": $base-fw,
+      "md": $medium-fw,
+      "bold": $bold-fw
+    )
+  ),
+  "letter-spacing": (
+    "prefix": "ls",
+    "values": (
+      "tight": -0.5,
+      "normal": $letter-spacing,
+      "0": 0,
+      "wide": 0.25,
+      "wider": 0.5
+    )
+  ),
+  "line-height": (
+    "prefix": "lh",
+    "values": (
+      "small": .75,
+      "normal": 1,
+      "02": $line-height,
+      "03": 1.25,
+      "04": 1.5
+    )
+  ),
+  "text-align": (
+    "prefix": "text",
+    "values": (
+      "center": center,
+      "left": left,
+      "right": right,
+      "justify": justify
+    )
+  ),
+  "text-decoration-line": (
+    "prefix": "decoration",
+    "values": (
+      "under": underline,
+      "over": overline,
+      "through": line-through,
+      "none": none
+    )
+  ),
+  "text-transform": (
+    "prefix": "text",
+    "values": (
+      "uppercase": uppercase,
+      "lowercase": lowercase,
+      "capitalize": capitalize
+    )
+  ),
+
+  // borders
+
+  "border-radius": (
+    "prefix": "br",
+    "values": (
+      "default": $base-border-radius,
+      "none": 0,
+      "xs": math.div($base-border-radius, 4),
+      "sm": math.div($base-border-radius, 2),
+      "md": $base-border-radius,
+      "lg": $base-border-radius * 2,
+      "full": 9999px,
+    )
+  ),
+  "border-width": (
+    "prefix": "border",
+    "values": (
+      "0": 0px,
+      "1": 1px,
+      "2": 2px,
+      "3": 3px,
+      "4": 4px,
+      "5": 5px,
+      "6": 6px,
+      "7": 7px,
+      "8": 8px,
+    )
+  ),
+  "border-left-width": (
+    "prefix": "border-l",
+    "values": (
+      "0": 0px,
+      "1": 1px,
+      "2": 2px,
+      "3": 3px,
+      "4": 4px,
+      "5": 5px,
+      "6": 6px,
+      "7": 7px,
+      "8": 8px,
+    )
+  ),
+  "border-right-width": (
+    "prefix": "border-r",
+    "values": (
+      "0": 0px,
+      "1": 1px,
+      "2": 2px,
+      "3": 3px,
+      "4": 4px,
+      "5": 5px,
+      "6": 6px,
+      "7": 7px,
+      "8": 8px,
+    )
+  ),
+  "border-top-width": (
+    "prefix": "border-t",
+    "values": (
+      "0": 0px,
+      "1": 1px,
+      "2": 2px,
+      "3": 3px,
+      "4": 4px,
+      "5": 5px,
+      "6": 6px,
+      "7": 7px,
+      "8": 8px,
+    )
+  ),
+  "border-bottom-width": (
+    "prefix": "border-b",
+    "values": (
+      "0": 0px,
+      "1": 1px,
+      "2": 2px,
+      "3": 3px,
+      "4": 4px,
+      "5": 5px,
+      "6": 6px,
+      "7": 7px,
+      "8": 8px,
+    )
+  ),
+  "border-style": (
+    "prefix": "border",
+    "values": (
+      "solid": solid,
+      "dashed": dashed,
+      "dotted": dotted,
+      "double": double,
+      "none": none
+    )
+  ),
+
+  // effects
+
+  "box-shadow": (
+    "prefix": "shadow",
+    "values": (
+      "base": $base-box-shadow
+    )
+  ),
+  "opacity": (
+    "prefix": "o",
+    "values": (
+      "10": 0.1,
+      "20": 0.2,
+      "30": 0.3,
+      "40": 0.4,
+      "50": 0.5,
+      "60": 0.6,
+      "70": 0.7,
+      "80": 0.8,
+      "90": 0.9,
+      "100": 1,
+    ),
+  )
+
+);
+
+@each $property, $map in $utilities {   //generate
+  $prefix: map-get($map, "prefix");
+  $values: map-get($map, "values");
+
+  @each $k, $v in $values {
+    @if($k == "default") {
+      .#{$prefix} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$prefix}-#{$k}{
+        #{$property}: $v;
+      }
+    }
+  }
+}
+
+// generate classes for accurate pixels
+// width, height, padding and margin
+
+@for $i from 1 through 1920 {
+  .p-#{$i}-px {
+    padding: #{$i}px;
+  }
+  .pl-#{$i}-px {
+    padding-left: #{$i}px;
+  }
+  .pr-#{$i}-px {
+    padding-right: #{$i}px;
+  }
+  .pt-#{$i}-px {
+    padding-top: #{$i}px;
+  }
+  .pb-#{$i}-px {
+    padding-bottom: #{$i}px;
+  }
+  .m-#{$i}-px {
+    margin: #{$i}px;
+  }
+  .ml-#{$i}-px {
+    margin-left: #{$i}px;
+  }
+  .mr-#{$i}-px {
+    margin-right: #{$i}px;
+  }
+  .mt-#{$i}-px {
+    margin-top: #{$i}px;
+  }
+  .mb-#{$i}-px {
+    margin-bottom: #{$i}px;
+  }
+  .min-w-#{$i}-px {
+    min-width: #{$i}px;
+  }
+  .min-h-#{$i}-px {
+    min-height: #{$i}px;
+  }
+  .max-w-#{$i}-px {
+    max-width: #{$i}px;
+  }
+  .max-h-#{$i}-px {
+    max-height: #{$i}px;
+  }
+  .w-#{$i}-px {
+    width: #{$i}px;
+  }
+  .h-#{$i}-px {
+    height: #{$i}px;
+  }
+}
+
+@for $i from 1 through 24 {
+  .w-#{$i} {
+    width: $base-width * $i;
+  }
+  .h-#{$i} {
+    height: $base-height * $i;
+  }
+}
+
+// border colors
+
+@each $type, $hex in $base {
+  .border-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $emerald-palette {  
+  .border-emerald-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $ruby-palette {  
+  .border-ruby-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $royal-palette {
+  .border-royal-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $pearl-palette {
+  .border-pearl-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $lemon-palette {
+  .border-lemon-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $spring-palette {
+  .border-spring-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $thanos-palette {
+  .border-thanos-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $coffee-palette {
+  .border-coffee-#{$type} {
+      border-color: $hex;
+  }
+}
+
+@each $type, $hex in $honey-palette {
+  .border-honey-#{$type} {
+      border-color: $hex;
+  }
+}

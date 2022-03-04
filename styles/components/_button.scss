@@ -1,0 +1,124 @@
+@use 'sass:math';
+
+@mixin btn($temp : $emerald) {
+    text-decoration: none;
+    padding: $base-padding $base-padding * 4;
+    font-size: math.div($base-font-size, 1.333);
+    font-family: $base-font;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: normal;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    transition: $base-easing;
+    background-color: $temp;
+}
+
+.btn {
+    @include btn;
+}
+
+@each $name, $key in $palettes {
+
+    .#{$name}-btn {
+        @include btn($key);
+        border: none;
+        border-radius: 4px;
+        &:hover {
+            background-color: lighten($key, 2);
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+
+        }
+    }
+
+    .#{$name}-btn-outlined {
+        @include btn(none);
+        border: $key 1px solid;
+        border-radius: 4px;
+        background: none;
+        font-family: $base-font;
+        &:hover {
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    .#{$name}-btn-rounded {
+        @include btn($key);
+        border: none;
+        border-radius: 999px;
+        &:hover {
+            background-color: lighten($key, 2);
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+}
+
+// buttons for custom color
+
+@each $name, $key in $custom-color {
+
+    .#{$name}-btn {
+        @include btn($key);
+        border: none;
+        border-radius: 4px;
+        &:hover {
+            background-color: lighten($key, 2);
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+
+        }
+    }
+
+    .#{$name}-btn-outlined {
+        @include btn(none);
+        border: $key 1px solid;
+        border-radius: 4px;
+        background: none;
+        font-family: $base-font;
+        &:hover {
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    .#{$name}-btn-rounded {
+        @include btn($key);
+        border: none;
+        border-radius: 999px;
+        &:hover {
+            background-color: lighten($key, 2);
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+        }
+        &:active {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+}

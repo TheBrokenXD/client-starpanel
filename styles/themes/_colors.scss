@@ -1,0 +1,295 @@
+@use "sass:map";
+
+@each $type, $hex in $base {  //base colors i.e black and white
+    .#{$type} {
+        color: $hex;
+    }
+    .#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $emerald-palette {  //green
+    .emerald-#{$type} {
+        color: $hex;
+    }
+    .emerald-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $ruby-palette {  //red
+    .ruby-#{$type} {
+        color: $hex;
+    }
+    .ruby-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $royal-palette {  //dark blue
+    .royal-#{$type} {
+        color: $hex;
+    }
+    .royal-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $pearl-palette {  //light blue
+    .pearl-#{$type} {
+        color: $hex;
+    }
+    .pearl-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $lemon-palette {  // yellow
+    .lemon-#{$type} {
+        color: $hex;
+    }
+    .lemon-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $spring-palette {  //greenish
+    .spring-#{$type} {
+        color: $hex;
+    }
+    .spring-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $thanos-palette {  //purple
+    .thanos-#{$type} {
+        color: $hex;
+    }
+    .thanos-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $coffee-palette {  //brown
+    .coffee-#{$type} {
+        color: $hex;
+    }
+    .coffee-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $honey-palette {  //orange
+    .honey-#{$type} {
+        color: $hex;
+    }
+    .honey-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $dracula-palette {  //orange
+    .dracula-#{$type} {
+        color: $hex;
+    }
+    .dracula-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+@each $type, $hex in $palettes {
+
+    // light variations
+
+    @for $i from 1 through 9 {
+        .#{$type}-color-light-#{$i} {
+            color: mix(white, $hex, $i * 10);
+        }
+        .#{$type}-color-bg-light-#{$i} {
+            background-color: mix(white, $hex, $i * 10);
+        }
+    }
+
+    // dark variations
+
+    @for $i from 1 through 9 {
+        .#{$type}-color-dark-#{$i} {
+            color: mix(black, $hex, $i * 10);
+        }
+        .#{$type}-color-bg-dark-#{$i} {
+            background-color: mix(black, $hex, $i * 10);
+        }
+    }
+    
+}
+
+// text-hover
+
+.emerald-color-hover {
+    &:hover {
+        color: map.get($emerald-palette, "hover");
+    }
+}
+
+.ruby-color-hover {
+    &:hover {
+        color: map.get($ruby-palette, "hover");
+    }
+}
+
+.royal-color-hover {
+    &:hover {
+        color: map.get($royal-palette, "hover");
+    }
+}
+
+.pearl-color-hover {
+    &:hover {
+        color: map.get($pearl-palette, "hover");
+    }
+}
+
+.lemon-color-hover {
+    &:hover {
+        color: map.get($lemon-palette, "hover");
+    }
+}
+
+.spring-color-hover {
+    &:hover {
+        color: map.get($spring-palette, "hover");
+    }
+}
+
+.thanos-color-hover {
+    &:hover {
+        color: map.get($thanos-palette, "hover");
+    }
+}
+
+.coffee-color-hover {
+    &:hover {
+        color: map.get($coffee-palette, "hover");
+    }
+}
+
+.honey-color-hover {
+    &:hover {
+        color: map.get($honey-palette, "hover");
+    }
+}
+.dracula-color-hover {
+    &:hover {
+        color: map.get($dracula-palette, "hover");
+    }
+}
+
+// bg-hover
+
+.emerald-color-bg-hover {
+    &:hover {
+        background-color: map.get($emerald-palette, "hover");
+    }
+}
+
+.ruby-color-bg-hover {
+    &:hover {
+        background-color: map.get($ruby-palette, "hover");
+    }
+}
+
+.royal-color-bg-hover {
+    &:hover {
+        background-color: map.get($royal-palette, "hover");
+    }
+}
+
+.pearl-color-bg-hover {
+    &:hover {
+        background-color: map.get($pearl-palette, "hover");
+    }
+}
+
+.lemon-color-bg-hover {
+    &:hover {
+        background-color: map.get($lemon-palette, "hover");
+    }
+}
+
+.spring-color-bg-hover {
+    &:hover {
+        background-color: map.get($spring-palette, "hover");
+    }
+}
+
+.thanos-color-bg-hover {
+    &:hover {
+        background-color: map.get($thanos-palette, "hover");
+    }
+}
+
+.coffee-color-bg-hover {
+    &:hover {
+        background-color: map.get($coffee-palette, "hover");
+    }
+}
+
+.honey-color-bg-hover {
+    &:hover {
+        background-color: map.get($honey-palette, "hover");
+    }
+}
+
+.dracula-color-bg-hover {
+    &:hover {
+        background-color: map.get($dracula-palette, "hover");
+    }
+}
+
+
+// your custom palette here
+
+$custom: #3774ff !default;  // your custom color
+$custom-color: (
+    "custom": $custom
+);
+
+$custom-palette: (
+    "color": $custom,
+    "main": #000000,
+    "on-main": $custom,
+    "text": #ffffff,
+    "sub-text": #EDEDED,
+    "error": #ee6829,
+    "disabled": #535353,
+    "active": #5588FF,
+    "card": #141318,
+    "hover": #202020,
+    "gray": #7d7c83,
+    //additional
+    "notification": #3774ff,
+    "misc": #bfbfbf
+);
+
+@each $type, $hex in $custom-palette {
+    .custom-#{$type} {
+        color: $hex;
+    }
+    .custom-#{$type}-bg {
+        background-color: $hex;
+    }
+}
+
+.custom-color-hover {
+    &:hover {
+        color: map.get($custom-palette, "hover");
+    }
+}
+
+.custom-color-bg-hover {
+    &:hover {
+        background-color: map.get($custom-palette, "hover");
+    }
+}

@@ -1,0 +1,51 @@
+@use "sass:map";
+
+// base & variables
+@import 'base/type';
+@import 'base/variables';
+@import 'base/base';
+
+// layout
+@import 'layout/breakpoints';
+@import 'layout/grid';
+
+// colors
+@import 'themes/colors';
+
+// components
+@import 'components/card';
+@import 'components/button';
+@import 'components/navbar';
+@import 'components/forms';
+@import 'components/avatar';
+@import 'components/footer';
+
+// utilities
+@import 'base/utilities';
+
+
+// changes & additions
+
+.sidebar, .sidebar-toggled {
+    background: #5588FF;           // edit your sidebar color here
+}
+
+.nav-content {
+    backdrop-filter: blur(12px);    //optional
+}
+
+.container {
+    max-width: 100%;                //changed
+    padding: 0px 10px;              //changed
+}
+
+// custom classes
+
+.form-border-right {
+    border-right: 1px solid #EDEDED;
+    padding-right: 100px;
+}
+
+.firebaseui-card-content {
+    padding: 0px !important;
+}

@@ -1,0 +1,33 @@
+@use 'sass:math';
+
+@mixin avatar($avatar-br) {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: $avatar-br;
+    border: none;
+}
+
+$avatar-base: 3.75rem;
+
+$avatar: (
+    reg: $avatar-base,
+    sm: math.div($avatar-base, 2),
+    xl: $avatar-base * 2,
+    xxl: $avatar-base * 3
+);
+
+@each $name, $key in $avatar {
+
+    .avatar-#{$name} {
+        @include avatar(9999px);
+        width: $key;
+        height: $key;
+    }
+    .avatar-square-#{$name} {
+        @include avatar($base-border-radius);
+        width: $key;
+        height: $key;
+    }
+
+}

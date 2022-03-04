@@ -1,0 +1,241 @@
+@use "sass:map";
+
+// colors
+
+$emerald: #1ed760 !default;
+$ruby: #bd3e3e !default;
+$royal: #5e81ac !default;
+$pearl: #88C0D0 !default;
+$lemon: #C2D935 !default;
+$spring: #689d6a !default;
+$thanos: #6F3C89 !default;
+$coffee: #ebdbb2 !default;
+$honey: #FFA789 !default;
+$dracula: #6272a4 !default;
+
+$palettes: (
+
+    "emerald": $emerald,
+    "ruby": $ruby,
+    "royal": $royal,
+    "pearl": $pearl,
+    "lemon": $lemon,
+    "spring": $spring,
+    "thanos": $thanos,
+    "coffee": $coffee,
+    "honey": $honey,
+    "dracula": $dracula,
+
+);
+
+// color palette
+
+$base: (
+    "white": white,
+    "black": black
+);
+
+$emerald-palette: (
+    "color": $emerald,
+    "main": #000000,
+    "on-main": $emerald,
+    "text": #ffffff,
+    "sub-text": #f0f0f0,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #166632,
+    "card": #1a1a1a,
+    "hover": #202020,
+    "gray": #797979,
+    //additional
+    "notification": #1db954,
+    "misc": #bfbfbf
+);
+
+$ruby-palette: (
+    "color": $ruby,
+    "main": #262626,
+    "on-main": #f1a84f,
+    "text": #ffffff,
+    "sub-text": #f0f0f0,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #f1a84f,
+    "hover": #000000,
+    "gray": #d1d6e2,
+    //additional
+    "notification": #c98430,
+    "misc": #bfbfbf
+);
+
+$royal-palette: (
+    "color": $royal,
+    "main": #eceff4,
+    "on-main": #81a1c1,
+    "text": #2e3440,
+    "sub-text": #3b4252,
+    "error": #bf616a,
+    "disabled": #c0c0c0,
+    "active": #81a1c1,
+    "card": #79a2be,
+    "hover": #4c566a,
+    "gray": #aeb5c4,
+    //additional
+    "notification": #a3be8c,
+    "misc": #bfbfbf
+);
+
+$pearl-palette: (
+    "color": $pearl,
+    "main": #2e3440,
+    "on-main": #81A1C1,
+    "text": #ECEFF4,
+    "sub-text": #E5E9F0,
+    "error": #BF616A,
+    "disabled": #434C5E,
+    "active": #93AECA,
+    "hover": #9CB5CE,
+    "gray": #aeb5c4,
+    //additional
+    "notification": #A3BE8C,
+    "misc": #bfbfbf
+);
+
+$lemon-palette: (
+    "color": $lemon,
+    "main": #0a0e14,
+    "on-main": $lemon,
+    "text": #F0F0F0,
+    "sub-text": #F0F0F0,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #727d2b,
+    "card": #23272c,
+    "hover": #202020,
+    "gray": #0a0e14,
+    //additional
+    "notification": #C2D935,
+    "misc": #bfbfbf
+);
+
+$spring-palette: (
+    "color": $spring,
+    "main": #292828,
+    "on-main": #fb4934,
+    "text": #fbf1c7,
+    "sub-text": #d5c4a1,
+    "error": #d79921,
+    "disabled": #bdae93,
+    "active": #cc241d,
+    "hover": #202020,
+    "gray": #d5c4a1,
+    //additional
+    "notification": #8ec07c,
+    "misc": #bfbfbf
+);
+
+$thanos-palette: (
+    "color": $thanos,
+    "main": #0A0E14,
+    "on-main": #c76af6,
+    "text": #f1eaff,
+    "sub-text": #e0d0ff,
+    "error": #f61379,
+    "disabled": #535353,
+    "active": #6F3C89,
+    "card": #22272b,
+    "hover": #3a2645,
+    "gray": #797979,
+    //additional
+    "notification": #ff9e00,
+    "misc": #DEDEDE
+);
+
+$coffee-palette: (
+    "color": $coffee,
+    "main": #461217,
+    "on-main": #e7a52d,
+    "text": #ebdbb2,
+    "sub-text": #ebdbb2,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #e7a52d,
+    "hover": #3a2645,
+    "gray": #909090,
+    //additional
+    "notification": #ff9e00,
+    "misc": #BFBFBF
+);
+
+$honey-palette: (
+    "color": $honey,
+    "main": #FFF9F4,
+    "on-main": #ff8367,
+    "text": #363636,
+    "sub-text": #3D3D3D,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #ffdace,
+    "card": #f07a6a,
+    "hover": #d3d3d3,
+    "gray": #FFF9F4,
+    //additional
+    "notification": #FFA789,
+    "misc": #BFBFBF
+);
+
+$dracula-palette: (
+    "color": $dracula,
+    "main": #44475a,
+    "on-main": #ffb86c,
+    "text": #f8f8f2,
+    "sub-text": #f8f8f2,
+    "error": #e22134,
+    "disabled": #535353,
+    "active": #8be9fd,
+    "card": #696b7b,
+    "hover": #000000,
+    "gray": #ECECDB,
+    //additional
+    "notification": #6272a4,
+    "misc": #BFBFBF
+);
+
+// spacing
+
+$letter-spacing: -.04em !default;
+$line-height: 1.15 !default;
+$base-padding: 0.5rem !default;
+$base-margin: 0.5rem !default;
+$base-width: 0.25rem !default;
+$base-height: 0.25rem !default;
+
+//borders
+
+$base-border-radius: 10px !default;
+$cover-border-radius: 5px !default;
+
+// box-shadow
+
+$base-box-shadow: rgb(0 0 0 / 12%) 0px 5px 10px !default;
+
+// font sizes
+
+$base-font-size: 1rem !default;
+$xs-font-size: $base-font-size * 0.5 !default;
+$sm-font-size: $base-font-size * 0.75 !default;
+$lg-font-size: $base-font-size * 1.5 !default;
+$xl-font-size: $base-font-size * 2.25 !default;
+
+// font weights
+
+$base-fw: 400;
+$medium-fw: 500;
+$bold-fw: 700;
+
+// easings
+
+$base-easing: all .15s cubic-bezier(0.79,0.14,0.15,0.86) !default;
+$easing-harsh-1: all .15s cubic-bezier(0.86,0,0.07,1) !default;
+$easing-harsh-2: all .15s cubic-bezier(1,0,0,1) !default;
+$easing-bounce: all .15s cubic-bezier(0.68,-0.55,0.27,1.55) !default;

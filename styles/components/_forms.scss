@@ -1,0 +1,43 @@
+@use 'sass:math';
+
+form {
+
+    $placeholderColor: #C7C8CC;
+    $input-box-shadow: rgb(0 0 0 / 12%) 0px 5px 10px;
+    $input-box-shadow-f: rgb(0 0 0 / 20%) 0px 5px 10px;
+
+    .form-label {
+        font-size: $lg-font-size;
+        font-weight: $medium-fw;
+    }
+    .input-t {
+        outline: none;
+        width: 100%;
+        font-size: $base-font-size;
+        border: 0;
+        padding: $base-padding *2;
+        border-radius: math.div($base-border-radius, 2.5);
+        box-shadow: $input-box-shadow;
+        font-family: $base-font;
+        // color: #000;
+        transition: $base-easing;
+        &::-webkit-input-placeholder {
+            color: $placeholderColor;
+        }
+        &:-moz-placeholder {
+            color: $placeholderColor;
+        }
+        &::-moz-placeholder {
+            color: $placeholderColor;
+        }
+        &:-ms-input-placeholder {
+            color: $placeholderColor;
+        }
+        &:hover {
+            box-shadow: $input-box-shadow-f;
+        }
+        &:focus {
+            box-shadow: $input-box-shadow-f;
+        }
+    }
+}
