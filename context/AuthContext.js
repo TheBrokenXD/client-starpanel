@@ -4,9 +4,10 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut,
+    signOut
 } from 'firebase/auth'
-import { auth } from "../firebase/clientApp"
+import { auth, db } from "../firebase/clientApp"
+import { addDoc, collection } from 'firebase/firestore';
 
 const AuthContext = createContext({})
 
@@ -16,7 +17,6 @@ export const AuthContextProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    console.log(user)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -24,7 +24,7 @@ export const AuthContextProvider = ({children}) => {
                 setUser({
                     uid: user.uid,
                     email: user.email,
-                    displayName: user.displayName,
+                    name: user.displayName,
                 })
             } else {
                 setUser(null)
@@ -35,8 +35,21 @@ export const AuthContextProvider = ({children}) => {
         return () => unsubscribe()
     }, [])
 
-    const signUp = async (email, password) => {
+    const signUp = async (email, password, name) => {
         return createUserWithEmailAndPassword(auth, email, password)
+        .then( () => {
+            console.log(name)
+            const collectionRef = collection(db, "users")
+            const docRef = addDoc(collectionRef, { 
+                name: name,
+                email: email,
+                password: password,
+                uid: auth.currentUser.uid
+             })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 
     const signIn = (email, password) => {

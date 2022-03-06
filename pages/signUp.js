@@ -4,9 +4,7 @@ import Link from "next/link"
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from "react";
 // firebase
-import { useAuth } from '../context/AuthContext';
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../firebase/clientApp'; 
+import { useAuth, user } from '../context/AuthContext';
 
 const SignUp = () => {
 
@@ -22,23 +20,13 @@ const SignUp = () => {
   
     const handleSignup = async (e) => {
         e.preventDefault()
-    
+
         try {
             await signUp(data.email, data.password, data.displayName)
         } catch (err) {
             console.log(err)
         }
-    
         console.log(data)
-
-        const collectionRef = collection(db, "users")
-        const docRef = await addDoc(collectionRef, { ...data })
-        setData({
-            email: '',
-            password: '',
-            displayName: '',
-        })
-        console.log(docRef)
 
     }
 
