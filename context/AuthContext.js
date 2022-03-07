@@ -7,7 +7,7 @@ import {
     signOut
 } from 'firebase/auth'
 import { auth, db } from "../firebase/clientApp"
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 
 const AuthContext = createContext({})
 
@@ -39,20 +39,22 @@ export const AuthContextProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password)
         .then( () => {
             console.log(name)
-            const collectionRef = collection(db, "users")
-            const docRef = addDoc(collectionRef, { 
+            // add user to db
+            const docRef = setDoc(doc(db, 'users', auth.currentUser.uid), {
                 name: name,
                 email: email,
-                password: password,
-                uid: auth.currentUser.uid
-             })
+                uid: auth.currentUser.uid,
+                method: 'Email'
+            }).catch((error) => {
+                console.log(error)
+            })
         })
         .catch((error) => {
             console.log(error)
         })
     }
 
-    const signIn = (email, password) => {
+    const signIn = async (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 

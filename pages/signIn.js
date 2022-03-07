@@ -6,7 +6,8 @@ import React, { useState, useEffect } from "react";
 // firebase
 import { useAuth } from '../context/AuthContext';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from '../firebase/clientApp';
+import { auth, db } from '../firebase/clientApp';
+import { doc, setDoc } from 'firebase/firestore';
 
 const SignIn = () => {
 
@@ -23,6 +24,17 @@ const SignIn = () => {
             // user info
             const user = result.user;
             console.log({ credential, token, user });
+
+            // add user to db
+            const docRef = setDoc(doc(db, 'users', user.uid), {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid,
+                method: 'Google'
+            }).catch((error) => {
+                console.log(error)
+            })
+            
         })
         .catch((error) => {
             const errorCode = error.code;

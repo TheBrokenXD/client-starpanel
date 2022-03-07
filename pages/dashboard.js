@@ -6,11 +6,29 @@ import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/
 import { useEffect, useState } from "react";
 import { db } from '../firebase/clientApp';
 
-const dashboard = () => {
+const Dashboard = () => {
 
-    const collectionRef = collection(db, "users");
+    // access firestore
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const collectionRef = collection(db, "users");
+
+        const q = query(collectionRef, orderBy("uid"));
+
+        const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
+            setData(QuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.number })));
+        });
+        return unsubscribe;
+
+    }, [])
+
+    // access auth
 
     const { user } = useAuth()
+
+    console.log(user.uid)
 
     return (
         <>
@@ -24,8 +42,22 @@ const dashboard = () => {
                     <div className="col-6-xs">
 
                         <div className="card custom-card-bg p-3">
-                            <p className='white'>Username : {user.name}</p>
-                            <p className='white'>Email : {user.email}</p>
+
+                            {data.map(data => {
+                                return(
+                                    data.uid == user.uid ? (
+                                        <>
+                                            <div><p className="custom-sub-text">Username : {data.name}</p></div>
+                                            <div><p className="custom-sub-text">Email : {data.email}</p></div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            
+                                        </>
+                                    )
+                                )
+                            })}
+
                         </div>
 
                     </div>
@@ -36,4 +68,4 @@ const dashboard = () => {
     );
 }
  
-export default dashboard;
+export default Dashboard;

@@ -46,11 +46,11 @@ const Navbar = () => {
           <li>
             {user ? (
               <div className="custom-li">
-                <li><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover">Dashboard</a></Link></li>
-                <li><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
+                <div><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover">Dashboard</a></Link></div>
+                <div><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
                   logout()
                   router.push('/signIn')
-                }} >Sign out</a></Link></li>
+                }} >Sign out</a></Link></div>
               </div>
             ) : (
               <div className="custom-li">
@@ -60,7 +60,6 @@ const Navbar = () => {
             )}
           </li>
           <li><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover">Services</a></Link></li>
-          {/* <li><Link href="#" passHref><a className="font-xl custom-text custom-color-hover">API</a></Link></li> */}
         </ul>
       </div>
 
