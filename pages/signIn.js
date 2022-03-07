@@ -32,6 +32,7 @@ const SignIn = () => {
                 name: user.displayName,
                 email: user.email,
                 uid: user.uid,
+                role: 'user',
                 method: 'Google'
             }).catch((error) => {
                 console.log(error)

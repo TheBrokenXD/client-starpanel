@@ -44,7 +44,8 @@ export const AuthContextProvider = ({children}) => {
                 name: name,
                 email: email,
                 uid: auth.currentUser.uid,
-                method: 'Email'
+                method: 'Email',
+                role: 'user'
             }).catch((error) => {
                 console.log(error)
             })

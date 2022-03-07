@@ -56,3 +56,13 @@
     flex-direction: column;
     gap: $base-padding * 5;
 }
+
+.admin-container {
+    padding: 20px 10px;
+}
+
+.admin-li {
+    display: flex;
+    flex-direction: column;
+    gap: $base-padding * 2;
+}
