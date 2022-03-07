@@ -9,7 +9,7 @@ import { collection, onSnapshot, query, QuerySnapshot, where } from 'firebase/fi
 import { db } from '../../firebase/clientApp';
 import { useAuth } from '../../context/AuthContext';
 
-const index = () => {
+const Index = () => {
 
     // access firestore
     const [data, setData] = useState([]);
@@ -37,10 +37,10 @@ const index = () => {
                     <div className="row align-i-center h-screen">
                         <div className='col-1-xs column align-i-center'>
                             <ul className="column align-i-center admin-li pt-6 pb-6">
-                                <li><Link href="#"><Image src="/svg/admin/Home.svg" height={50} width={50} alt="icon" /></Link></li>
-                                <li><Link href="#"><Image src="/svg/admin/Users.svg" height={50} width={50} alt="icon" /></Link></li>
-                                <li><Link href="#"><Image src="/svg/admin/Orders.svg" height={50} width={50} alt="icon" /></Link></li>
-                                <li><Link href="#"><Image src="/svg/admin/Services.svg" height={50} width={50} alt="icon" /></Link></li>
+                                <li><Link href="#" passHref><Image src="/svg/admin/Home.svg" height={50} width={50} alt="icon" /></Link></li>
+                                <li><Link href="#" passHref><Image src="/svg/admin/Users.svg" height={50} width={50} alt="icon" /></Link></li>
+                                <li><Link href="#" passHref><Image src="/svg/admin/Orders.svg" height={50} width={50} alt="icon" /></Link></li>
+                                <li><Link href="#" passHref><Image src="/svg/admin/Services.svg" height={50} width={50} alt="icon" /></Link></li>
                             </ul>
                         </div>
                         <div className='col-11-xs card custom-card-bg row justify-center align-i-center max-h-third p-3'>
@@ -62,4 +62,4 @@ const index = () => {
 
 }
  
-export default index;
+export default Index;
