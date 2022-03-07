@@ -9,7 +9,6 @@ import { db } from '../firebase/clientApp';
 const Dashboard = () => {
 
     // access firestore
-
     const [data, setData] = useState([]);
 
     useEffect(() => {
