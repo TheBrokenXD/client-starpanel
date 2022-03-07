@@ -1,0 +1,19 @@
+@mixin toast {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: $base-easing;
+    -webkit-transition: all 1s cubic-bezier(0.77,0,0.18,1);
+    padding: $base-padding *2 $base-padding *12 $base-padding *2 $base-padding *2;
+    margin: 0 20px 20px 0;
+}
+
+.toast {
+    @include toast();
+    transform: translateX(0%);
+}
+
+.toast-hidden {
+    @include toast();
+    transform: translateX(120%);
+}

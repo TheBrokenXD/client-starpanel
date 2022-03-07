@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from "next/link"
 // react
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // firebase
 import { useAuth } from '../context/AuthContext';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -11,8 +11,10 @@ import { doc, setDoc } from 'firebase/firestore';
 
 const SignIn = () => {
 
-    // google auth
+    // getting some classes
+    const toastRef = useRef();
 
+    // google auth
     const provider = new GoogleAuthProvider();
 
     const signInWithGoogle = () => {
@@ -46,7 +48,6 @@ const SignIn = () => {
     }
 
     // email pass auth
-
     const router = useRouter();
     const { user, signIn } = useAuth()
     const [data, setData] = useState({
@@ -58,11 +59,23 @@ const SignIn = () => {
         e.preventDefault()
         console.log(user)
 
-        try {
-            await signIn(data.email, data.password)
-            router.push('/services')
-        } catch (err) {
-            console.log(err)
+        if(data.email == '' || data.password == '') {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "Please fill all the fields"
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        } else {
+            try {
+                await signIn(data.email, data.password)
+                router.push('/services')
+            } catch (err) {
+                toastRef.current.className = "toast custom-error-bg";
+                toastRef.current.children[0].innerHTML = err.message
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-error-bg"
+                }, 2000)
+            }
         }
 
     }
@@ -81,6 +94,11 @@ const SignIn = () => {
         </Head>
 
         <div className="container">
+
+            <div ref={toastRef} className="toast-hidden custom-error-bg">
+                <p className='fw-md custom-text'>Error! please check your code</p>
+            </div>
+
             <div className="row justify-center align-i-center h-screen">
                 <div className="col-11-xs">
 
@@ -90,16 +108,18 @@ const SignIn = () => {
                             <div className="col-9-xs column justify-center form-border-right">
                                 <form className=''>
                                     <div className="column">
-                                        <label className='custom-sub-text fw-md'>Email</label>
+                                        <label className='custom-sub-text fw-md' htmlFor="email">Email</label>
                                         <input type="email" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="Email" 
+                                            id='email'
                                             label='email'
                                             value={data.email}
                                             onChange={e => setData({ ...data, email: e.target.value })}
                                         />
                                     </div>
                                     <div className="column mt-2">
-                                        <label className='custom-sub-text fw-md'>Password</label>
+                                        <label className='custom-sub-text fw-md' htmlFor="password">Password</label>
                                         <input type="password" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="Password" 
+                                            id='password'
                                             label='password'
                                             value={data.password}
                                             onChange={e => setData({ ...data, password: e.target.value })}
@@ -107,7 +127,7 @@ const SignIn = () => {
                                     </div>
                                     <div className='display-f'>
                                         <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text mt-3 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
-                                        <button onClick={signInWithGoogle} className="custom-btn-rounded custom-text mt-3 ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
+                                        <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text mt-3 ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
                                     </div>
                                 </form>
                             </div>
@@ -122,6 +142,7 @@ const SignIn = () => {
                     
                 </div>
             </div>
+
         </div>
 
         </>

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 // firebase
+import { useEffect, useState } from "react";
 import { useAuth } from '../context/AuthContext';
 // store
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
 import { db } from '../firebase/clientApp';
 
 const Dashboard = () => {
@@ -28,8 +28,6 @@ const Dashboard = () => {
 
     const { user } = useAuth()
 
-    console.log(user.uid)
-
     return (
         <>
 
@@ -52,7 +50,6 @@ const Dashboard = () => {
                                         </>
                                     ) : (
                                         <>
-                                            
                                         </>
                                     )
                                 )
