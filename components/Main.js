@@ -25,25 +25,25 @@ const Main = () => {
                 <div className="row justify-center mt-4">
 
                     <div className="col-2-xs column align-i-center">
-                        <div className="card br-half custom-card-bg p-4">
+                        <div className="card custom-card-bg p-4">
                             <Image src="/svg/register.svg" height={120} width={120} alt="icon" />
                             <p className="font-lg text-center custom-text pt-2">Sign Up</p>
                         </div>
                     </div>
                     <div className="col-2-xs column align-i-center ml-5 mt-4">
-                        <div className="card br-half custom-card-bg p-4">
+                        <div className="card custom-card-bg p-4">
                             <Image src="/svg/wallet.svg" height={120} width={120} alt="icon" />
                             <p className="font-lg text-center custom-text pt-2">Add Funds</p>
                         </div>
                     </div>
                     <div className="col-2-xs column align-i-center ml-5">
-                        <div className="card br-half custom-card-bg p-4">
+                        <div className="card custom-card-bg p-4">
                             <Image src="/svg/bag.svg" height={120} width={120} alt="icon" />
                             <p className="font-lg text-center custom-text pt-2">Order</p>
                         </div>
                     </div>
                     <div className="col-2-xs column align-i-center ml-5 mt-4">
-                        <div className="card br-half custom-card-bg p-4">
+                        <div className="card custom-card-bg p-4">
                             <Image src="/svg/heart.svg" height={120} width={120} alt="icon" />
                             <p className="font-lg text-center custom-text pt-2">Results</p>
                         </div>

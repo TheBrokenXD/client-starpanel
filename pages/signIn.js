@@ -25,7 +25,17 @@ const SignIn = () => {
 
             // user info
             const user = result.user;
-            console.log({ credential, token, user });
+
+            // convert date to proper format
+            const time = auth.currentUser.metadata.creationTime;
+            const convert = new Date(time);
+            const dateWithDay = convert.toDateString();
+            // split date
+            const dateSplit = dateWithDay.split(" ");
+            const month = dateSplit[1];
+            const dateNum = dateSplit[2];
+            const year = dateSplit[3];
+            const dateWithMonthAndYear = `${month} ${dateNum} ${year}`;
 
             // add user to db
             const docRef = setDoc(doc(db, 'users', user.uid), {
@@ -33,7 +43,9 @@ const SignIn = () => {
                 email: user.email,
                 uid: user.uid,
                 role: 'user',
-                method: 'Google'
+                method: 'Google',
+                balance: 0,
+                created: dateWithMonthAndYear
             }).catch((error) => {
                 console.log(error)
             })

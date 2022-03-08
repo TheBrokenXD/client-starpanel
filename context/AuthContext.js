@@ -23,8 +23,7 @@ export const AuthContextProvider = ({children}) => {
             if (user) {
                 setUser({
                     uid: user.uid,
-                    email: user.email,
-                    name: user.displayName,
+                    email: user.email
                 })
             } else {
                 setUser(null)
@@ -40,12 +39,28 @@ export const AuthContextProvider = ({children}) => {
         .then( () => {
             console.log(name)
             // add user to db
+
+            // convert date to proper format
+            const time = auth.currentUser.metadata.creationTime;
+            const convert = new Date(time);
+            const dateWithDay = convert.toDateString();
+            // split date
+            const dateSplit = dateWithDay.split(" ");
+            const month = dateSplit[1];
+            const dateNum = dateSplit[2];
+            const year = dateSplit[3];
+            const dateWithMonthAndYear = `${month} ${dateNum} ${year}`;
+
+            console.log(dateWithMonthAndYear)
+
             const docRef = setDoc(doc(db, 'users', auth.currentUser.uid), {
                 name: name,
                 email: email,
                 uid: auth.currentUser.uid,
                 method: 'Email',
-                role: 'user'
+                role: 'user',
+                balance: 0,
+                created: dateWithMonthAndYear
             }).catch((error) => {
                 console.log(error)
             })
