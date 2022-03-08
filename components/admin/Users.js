@@ -55,7 +55,7 @@ const Users = () => {
                             
                             {data.map(data => {
                                 return (
-                                    <div className="row align-i-center custom-color-bg-hover pt-3">
+                                    <div className="row align-i-center custom-color-bg-hover pt-3" key={data.uid}>
                                         <div className="col-2-xs"><p className="custom-sub-text">{data.name}</p></div>
                                         <div className="col-3-xs"><p className="custom-sub-text">{data.email}</p></div>
                                         <div className="col-2-xs"><p className="custom-sub-text">{data.balance}</p></div>
