@@ -12,8 +12,9 @@ const ServiceList = () => {
 
     useEffect(() => {
         const collectionRef = collection(db, "services");
-
-        const q = query(collectionRef, orderBy("number"));
+        console.log(collectionRef);
+        
+        const q = query(collectionRef, orderBy("number", "asc"));
 
         const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
             setServices(QuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.number })));
@@ -74,6 +75,8 @@ const ServiceList = () => {
                             const closeRef = () => {
                                 modalRefOne.current.className = "modal-hidden";
                             }
+
+                            const number = Number(service.number);
 
                             return(
                                 service.category === "social" ? (
