@@ -76,8 +76,6 @@ const ServiceList = () => {
                                 modalRefOne.current.className = "modal-hidden";
                             }
 
-                            const number = Number(service.number);
-
                             return(
                                 service.category === "social" ? (
                                     <>

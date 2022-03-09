@@ -5,6 +5,10 @@ import { useAuth } from "../../context/AuthContext";
 // store
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
+// components
+import Users from "./Users";
+import Orders from "./Orders";
+import Services from "./Services";
 
 const Home = () => {
 
@@ -55,11 +59,16 @@ const Home = () => {
                                 <div className="col-4-xs">
                                     <div className="card custom-card-bg-gradient p-2 mt-3">
                                         <p className="font-lg fw-md custom-text">Services</p>
-                                        <Link href="/admin/addService" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Service</button></Link>
+                                        <Link href="/admin/editService" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Service</button></Link>
                                     </div>
                                 </div>
 
                             </div>
+
+                            {/* <div className=""><Users /></div>
+                            <div className="hidden"><Orders /></div>
+                            <div className="hidden"><Services /></div> */}
+                            
                         </>
                     ) : (
                         <>

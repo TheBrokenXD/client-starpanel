@@ -12,7 +12,8 @@ const NewForm = () => {
     const toastRef = useRef();
 
     // adding new service
-    const [service, setService] = useState({ number: '', title: '', category: '', price: '', description: '', min: '', max: '', limited: 'nope' });
+    const [service, setService] = useState({ number: 0, title: '', category: '', price: '', description: '', min: '', max: '', limited: 'nope' });
+    console.log(service);
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -23,21 +24,34 @@ const NewForm = () => {
             setTimeout(() => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
-        } else if (service.category === 'Please select an option') {
+        } else if (service.number === 0) {
             toastRef.current.className = "toast custom-error-bg";
             toastRef.current.children[0].innerHTML = "Please fill all the fields"
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        } else if (service.category === 'Please select an option' || service.category === '') {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "Please fill all the fields"
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        } else if (service.min > service.max) {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "Min cannot be higher than max"
             setTimeout(() => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
         } else {
             const collectionRef = collection(db, "services")
             const docRef = await addDoc(collectionRef, { ...service })
-            setService({ number: '', title: '', category: '', price: '', description: '', min: '', max: '' })
+            setService({ limited: 'nope' })
             toastRef.current.className = "toast custom-color-bg";
             toastRef.current.children[0].innerHTML = `Service ${service.title} is added successfully`
             setTimeout(() => {
-                toastRef.current.className = "toast-hidden custom-color-bg"
-            }, 4000)
+                toastRef.current.className = "toast-hidden custom-color-bg";
+                window.location.reload();
+            }, 1000)
         }
     }
 
@@ -48,13 +62,13 @@ const NewForm = () => {
             <p className='fw-md custom-text'>Error! please check your code</p>
         </div>
 
-        <form className=''>
+        <form id='form'>
 
             <div className='row gap-2'>
                 <div className='col-6-xs pt-1 pb-1'>
                     <div className="column">
                         <label className='custom-sub-text fw-md' htmlFor='title'>Title</label>
-                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="String" 
+                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="string" 
                             id='title'
                             label='title'
                             value={service.title}
@@ -76,11 +90,11 @@ const NewForm = () => {
                 <div className='col-3-xs pt-1 pb-1'>
                     <div className="column">
                         <label className='custom-sub-text fw-md' htmlFor='number'>ID</label>
-                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="number" 
+                        <input type="number" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="number" 
                             id='number'
                             label='number'
                             value={service.number}
-                            onChange={e => setService({ ...service, number: e.target.value })}
+                            onChange={e => setService({ ...service, number: Number(e.target.value) })}
                         />
                     </div>
                 </div>
