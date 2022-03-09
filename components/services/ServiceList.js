@@ -21,14 +21,10 @@ const ServiceList = () => {
         return unsubscribe;
     }, [])
 
-    const modalRef = useRef();
-
-    const descHandle = () => {
-        modalRef.current.className = "modal";
-    }
-    const closeRef = () => {
-        modalRef.current.className = "modal-hidden";
-    }
+    const modalRefOne = useRef();
+    const modalRefTwo = useRef();
+    const modalRefThree = useRef();
+    const modalRefFour = useRef();
 
     return (
         <div>
@@ -63,33 +59,40 @@ const ServiceList = () => {
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-3-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Min</h3></div>
+                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
                             <div className="col-2-xs custom-text"><h3>Max</h3></div>
                             <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
 
+                            const descHandle = () => {
+                                modalRefOne.current.className = "modal";
+                            }
+                            const closeRef = () => {
+                                modalRefOne.current.className = "modal-hidden";
+                            }
+
                             return(
                                 service.category === "social" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-3-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-2-xs">
+                                            <div className="col-1-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
-                                                <div ref={modalRef} className="modal-hidden">
+                                                <div ref={modalRefOne} className="modal-hidden">
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-text">{service.description}</p>
+                                                        <p className="custom-sub-text">{service.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,28 +117,36 @@ const ServiceList = () => {
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-3-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Min</h3></div>
+                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
                             <div className="col-2-xs custom-text"><h3>Max</h3></div>
                             <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
+
+                            const descHandle = () => {
+                            modalRefTwo.current.className = "modal";
+                            }
+                            const closeRef = () => {
+                            modalRefTwo.current.className = "modal-hidden";
+                            }
+
                             return(
                                 service.category === "web" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-3-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
                                             <div className="col-2-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
-                                                <div ref={modalRef} className="modal-hidden">
+                                                <div ref={modalRefTwo} className="modal-hidden">
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
@@ -164,28 +175,36 @@ const ServiceList = () => {
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-3-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Min</h3></div>
+                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
                             <div className="col-2-xs custom-text"><h3>Max</h3></div>
                             <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
+
+                            const descHandle = () => {
+                            modalRefThree.current.className = "modal";
+                            }
+                            const closeRef = () => {
+                            modalRefThree.current.className = "modal-hidden";
+                            }
+
                             return(
                                 service.category === "telegram" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-3-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
                                             <div className="col-2-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
-                                                <div ref={modalRef} className="modal-hidden">
+                                                <div ref={modalRefThree} className="modal-hidden">
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
@@ -214,32 +233,40 @@ const ServiceList = () => {
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-3-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Min</h3></div>
+                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
+                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
                             <div className="col-2-xs custom-text"><h3>Max</h3></div>
                             <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
+
+                            const descHandle = () => {
+                            modalRefFour.current.className = "modal";
+                            }
+                            const closeRef = () => {
+                            modalRefFour.current.className = "modal-hidden";
+                            }
+
                             return(
                                 service.category === "premium" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-3-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
                                             <div className="col-2-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
-                                                <div ref={modalRef} className="modal-hidden">
+                                                <div ref={modalRefFour} className="modal-hidden">
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-text">{service.description}</p>
+                                                        <p className="custom-text">{service.max}</p>
                                                     </div>
                                                 </div>
                                             </div>

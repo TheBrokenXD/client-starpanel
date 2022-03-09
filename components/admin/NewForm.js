@@ -12,7 +12,7 @@ const NewForm = () => {
     const toastRef = useRef();
 
     // adding new service
-    const [service, setService] = useState({ number: '', title: '', category: '', price: '', description: '', min: '', max: '' });
+    const [service, setService] = useState({ number: '', title: '', category: '', price: '', description: '', min: '', max: '', limited: 'nope' });
 
     const onSubmit = async (event) => {
         event.preventDefault();
