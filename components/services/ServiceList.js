@@ -92,7 +92,7 @@ const ServiceList = () => {
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-sub-text">{service.description}</p>
+                                                        <p className="custom-sub-text pt-2">{service.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,7 +150,7 @@ const ServiceList = () => {
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-text">{service.description}</p>
+                                                        <p className="custom-text pt-2">{service.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@ const ServiceList = () => {
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-text">{service.description}</p>
+                                                        <p className="custom-text pt-2">{service.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -266,7 +266,7 @@ const ServiceList = () => {
                                                     <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
                                                         <span className="float-right font-xl pointer custom-text" onClick={closeRef}>&times;</span>
                                                         <p className="font-lg fw-lg custom-text">Description</p>
-                                                        <p className="custom-text">{service.max}</p>
+                                                        <p className="custom-text pt-2">{service.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
