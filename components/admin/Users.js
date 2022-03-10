@@ -41,7 +41,8 @@ const Users = () => {
                 <div className="row">
 
                     <div className="col-12-xs">
-                        <div className="card custom-hover-bg p-3">
+                        <p className="font-lg fw-md custom-text">User List</p>
+                        <div className="card custom-hover-bg p-3 mt-2">
                             
                             <div className="row">
                                 <div className="col-2-xs custom-text"><h3>Name</h3></div>
@@ -55,7 +56,7 @@ const Users = () => {
                             
                             {data.map(data => {
                                 return (
-                                    <div className="row align-i-center custom-color-bg-hover pt-3" key={data.uid}>
+                                    <div className="row align-i-center pt-3" key={data.uid}>
                                         <div className="col-2-xs"><p className="custom-sub-text">{data.name}</p></div>
                                         <div className="col-3-xs"><p className="custom-sub-text">{data.email}</p></div>
                                         <div className="col-2-xs"><p className="custom-sub-text">{data.balance}</p></div>

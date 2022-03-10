@@ -1,14 +1,9 @@
 import Link from "next/link";
 // firebase
 import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
 // store
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
-// components
-import Users from "./Users";
-import Orders from "./Orders";
-import Services from "./Services";
 
 const Home = () => {
 
@@ -27,55 +22,49 @@ const Home = () => {
 
     }, [])
 
-    // access auth
-
-    const { user } = useAuth()
+    // display last 4 users
+    const displayUsers = data.slice(0, 4);
+    console.log(displayUsers)
 
     return (
         <>
 
-            {data.map(data => {
-                return(
-                    data.uid == user.uid ? (
-                        <>
-                            <p className="font-lg fw-md custom-text">Welcome Back {data.name}!</p>
-                            
-                            <div className="row gap-1">
+            <div>
+                <div className="row">
 
-                                <div className="col-4-xs">
-                                    <div className="card custom-card-bg-gradient p-2 mt-3">
-                                        <p className="font-lg fw-md custom-text">Users</p>
-                                        <Link href="#" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>View Users</button></Link>
-                                    </div>
-                                </div>
-
-                                <div className="col-4-xs">
-                                    <div className="card custom-card-bg-gradient p-2 mt-3">
-                                        <p className="font-lg fw-md custom-text">Orders</p>
-                                        <Link href="#" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>View Orders</button></Link>
-                                    </div>
-                                </div>
-
-                                <div className="col-4-xs">
-                                    <div className="card custom-card-bg-gradient p-2 mt-3">
-                                        <p className="font-lg fw-md custom-text">Services</p>
-                                        <Link href="/admin/editService" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Service</button></Link>
-                                    </div>
-                                </div>
-
+                    <div className="col-12-xs">
+                        <p className="font-lg fw-md custom-text mt-2">Recent Users</p>
+                        <div className="card custom-hover-bg p-3 mt-2">
+                            <div className="row">
+                                <div className="col-2-xs custom-text"><h3>Name</h3></div>
+                                <div className="col-3-xs custom-text"><h3>Email</h3></div>
+                                <div className="col-2-xs custom-text"><h3>Balance</h3></div>
+                                <div className="col-1-xs custom-text"><h3>Role</h3></div>
+                                <div className="col-2-xs custom-text"><h3>Registered on</h3></div>
+                                <div className="col-2-xs custom-text"><h3>Action</h3></div>
                             </div>
-
-                            {/* <div className=""><Users /></div>
-                            <div className="hidden"><Orders /></div>
-                            <div className="hidden"><Services /></div> */}
-                            
-                        </>
-                    ) : (
-                        <>
-                        </>
-                    )
-                )
-            })}
+                            {data.map(data => {
+                            return (
+                                    <div className="row align-i-center pt-3" key={data.uid}>
+                                        <div className="col-2-xs"><p className="custom-sub-text">{data.name}</p></div>
+                                        <div className="col-3-xs"><p className="custom-sub-text">{data.email}</p></div>
+                                        <div className="col-2-xs"><p className="custom-sub-text">{data.balance}</p></div>
+                                        <div className="col-1-xs"><p className="custom-sub-text">{data.role}</p></div>
+                                        <div className="col-2-xs overflow-hidden"><p className="custom-sub-text">{data.created}</p></div>
+                                        {data.role == "admin" ? (
+                                            <div className="col-2-xs"><button className='custom-btn-rounded custom-text'>Options</button></div>
+                                        ) : (
+                                            <div className="col-2-xs"><button className='custom-btn-rounded custom-text'>Options</button></div>
+                                        )}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <p className="font-lg fw-md custom-text mt-2">Pending Orders</p>
+                    </div>
+                    
+                </div>
+            </div>
 
         </>
     );

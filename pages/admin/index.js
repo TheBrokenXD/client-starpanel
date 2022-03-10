@@ -60,6 +60,8 @@ const Index = () => {
             compRef.current.children[3].classList.remove("hidden");
         }
 
+        const name = data.filter(item => item.uid === user.uid)[0].name;
+
         return (
             <>
                 <div className="container">
@@ -73,8 +75,37 @@ const Index = () => {
                                 <li onClick={servicesClick} className="pointer"><Image src="/svg/admin/Services.svg" height={50} width={50} alt="icon" /></li>
                             </ul>
                         </div>
-                        <div ref={compRef} className='col-11-xs card custom-card-bg row justify-center align-i-center min-h-third max-h-third p-3'>
-                            <div className=""><Home /></div>
+                        <div ref={compRef} className='col-11-xs card custom-card-bg row justify-center align-i-center min-h-90p max-h-third overflow-y-scroll p-3'>
+                            <div className="">
+                                <div>
+                                    <p className="font-lg fw-md custom-text">Welcome Back {name}!</p>
+                                    <div className="row gap-1">
+
+                                        <div className="col-4-xs">
+                                            <div className="card custom-card-bg-gradient p-2 mt-3">
+                                                <p className="font-lg fw-md custom-text">Users</p>
+                                                <div onClick={usersClick}><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>View Users</button></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-4-xs">
+                                            <div className="card custom-card-bg-gradient p-2 mt-3">
+                                                <p className="font-lg fw-md custom-text">Orders</p>
+                                                <div onClick={ordersClick}><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>View Orders</button></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-4-xs">
+                                            <div className="card custom-card-bg-gradient p-2 mt-3">
+                                                <p className="font-lg fw-md custom-text">Services</p>
+                                                <div onClick={servicesClick}><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Service</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Home />
+                                </div>
+                            </div>
+
                             <div className="hidden"><Users /></div>
                             <div className="hidden"><Orders /></div>
                             <div className="hidden"><Services /></div>

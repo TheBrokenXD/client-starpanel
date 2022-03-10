@@ -12,7 +12,6 @@ const ServiceList = () => {
 
     useEffect(() => {
         const collectionRef = collection(db, "services");
-        console.log(collectionRef);
         
         const q = query(collectionRef, orderBy("number", "asc"));
 
