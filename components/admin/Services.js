@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 
-const services = () => {
+const Services = () => {
 
     const [services, setServices] = useState([]);
 
@@ -32,7 +32,7 @@ const services = () => {
 
             <div className="display-f justify-between">
                 <p className="font-lg fw-md custom-text">Service List</p>
-                <Link href="/admin/addService"><button className="btn custom-btn-rounded custom-text">Add a new Service</button></Link>
+                <Link href="/admin/addService" passHref><button className="btn custom-btn-rounded custom-text">Add a new Service</button></Link>
             </div>
             
 
@@ -295,4 +295,4 @@ const services = () => {
     );
 }
  
-export default services;
+export default Services;
