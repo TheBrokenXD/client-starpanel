@@ -54,8 +54,8 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="custom-li">
-                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover">Sign Up</a></Link>
                 <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover">Sign In</a></Link>
+                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover">Sign Up</a></Link>
               </div>
             )}
           </li>

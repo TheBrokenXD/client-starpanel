@@ -271,6 +271,8 @@ $custom-palette: (
     //additional
     "notification": #3774ff,
     "misc": #bfbfbf,
+    // own colors
+    "variant-1": #1d2228,
 );
 
 @each $type, $hex in $custom-palette {

@@ -1,7 +1,7 @@
 const AddFunds = () => {
     return (
         <>
-            <h1 className="custom-text">Add Funds</h1>
+            <h2 className="custom-text">Add Funds</h2>
         </>
     );
 }
