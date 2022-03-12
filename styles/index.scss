@@ -17,6 +17,7 @@
 @import 'components/button';
 @import 'components/navbar';
 @import 'components/forms';
+@import 'components/list';
 @import 'components/avatar';
 @import 'components/toast';
 @import 'components/modal';
@@ -66,4 +67,11 @@
     display: flex;
     flex-direction: column;
     gap: $base-padding * 2;
+}
+
+.dashboard-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 17%;
 }

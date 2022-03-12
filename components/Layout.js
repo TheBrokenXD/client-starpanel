@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
 
     const router = useRouter();
     // const showNav = router.pathname === '/admin' ? false '/dashoboard' ? false : true;
-    const showNav = router.pathname === '/admin' || router.pathname === '/dashboard' ? false : true;
+    const showNav = router.pathname === '/admin' ? false : true;
     
     return (
       <>

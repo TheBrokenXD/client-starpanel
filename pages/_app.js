@@ -10,6 +10,8 @@ config.autoAddCss = false
 import { useRouter } from 'next/router'
 // auth
 import ProtectedRoute from '../components/ProtectedRoute'
+import { RecoilRoot } from 'recoil';
+
 const noAuthRequired = ['/', '/signIn', '/signUp', '/services']
 
 function MyApp({ Component, pageProps }) {
@@ -23,7 +25,9 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         ): (
           <ProtectedRoute>
-            <Component {...pageProps} />
+            <RecoilRoot>
+              <Component {...pageProps} />
+            </RecoilRoot>
           </ProtectedRoute>
         )}
       </Layout>

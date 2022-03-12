@@ -24,16 +24,16 @@ const Limited = () => {
             <div>
                 {services.map(service => (
                     service.limited == "yup" ? (
-                        <div key={service.id} className="display-f justify-between card custom-card-bg-gradient mt-3 p-2">
+                        <div key={service.id} className="display-f justify-between card custom-card-bg-gradient mt-4 p-2">
                             <div>
                                 <h2 className="fw-md custom-text">{service.title}</h2>
-                                <h3 className="custom-text pt-2">Description:</h3>
+                                <h3 className="custom-text pt-3">Description:</h3>
                                 <p className="custom-sub-text">{service.description}</p>
                             </div>
                             <div>
                                 <p className="custom-sub-text">Price: {service.price}</p>
                                 <p className="custom-sub-text">ID: {service.number}</p>
-                                <button className="custom-btn custom-text pl-4 pr-4 mt-2">Buy</button>
+                                <button className="custom-btn custom-text pl-4 pr-4 mt-3">Buy</button>
                             </div>
                         </div>
                     ) : null
