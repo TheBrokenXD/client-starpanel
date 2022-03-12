@@ -24,14 +24,14 @@ const Terms = () => {
             <p className="custom-sub-text mt-1 pl-2">You may not use fake information while registering your account, including, fake name, fake e-mail, fake phone number or address. Any attempt to spoofing data will result in your account disabled</p>
         
             <p className="font-lg fw-md custom-text mt-3">3. Service</p>
-            <p className="custom-sub-text mt-1 pl-2">Starpanel.top will only be used to promote your Instagram/Twitter/Facebook or Social account and help boost your "Appearance" only.</p>
+            <p className="custom-sub-text mt-1 pl-2">Starpanel.top will only be used to promote your Instagram/Twitter/Facebook or Social account and help boost your appearance only.</p>
             <p className="custom-sub-text mt-1 pl-2">We DO NOT guarantee your new followers will interact with you, we simply guarantee you to get the followers you pay for.</p>
             <p className="custom-sub-text mt-1 pl-2">We DO NOT guarantee 100% of our accounts will have a profile picture, full bio and uploaded pictures, although we strive to make this the reality for all accounts.</p>
             <p className="custom-sub-text mt-1 pl-2">You will not upload anything into the Starpanel.top site including nudity or any material that is not accepted or suitable for the Instagram/Twitter/Facebook or Social Media community.</p>
             <p className="custom-sub-text mt-1 pl-2">Private accounts would not a get a refund! Please insure that your account is public before ordering.</p>
 
             <p className="font-lg fw-md custom-text mt-3">4. Duplicate order warning</p>
-            <p className="custom-sub-text mt-1 pl-2">If you are placing duplicate link while 1 is already in process then it'll be your loss , no refunds for such orders will be made!</p>
+            <p className="custom-sub-text mt-1 pl-2">If you are placing duplicate link while 1 is already in process then it will be your loss , no refunds for such orders will be made!</p>
             <p className="custom-sub-text mt-1 pl-2">We can not guarantee the speed for any of the Instagram Followers Services, below 1$ /k They can be instant , very fast or may take upto 48 hours to get complete. We can not cancel any order once placed. Order Accordingly Thank you.</p>
             <p className="custom-sub-text mt-1 pl-2">If your order has dropped under the start count, we will not refill your order. This is because your old followers are dropping and we are not covering your old orders. Thank you for your understanding.</p>
             <p className="custom-sub-text mt-1 pl-2">If you have problem with any order (Such as dropped , not completed). Please do not place another order before getting your Refund or Replacement for order , if you do so it will be your Loss. We will not provide refunds for such cases as we do not know which server/order gets delivered and which does not.</p>
@@ -44,7 +44,7 @@ const Terms = () => {
             <p className="font-lg fw-md custom-text mt-3">1. Refund Policy</p>
             <p className="custom-sub-text mt-1 pl-2">No refunds will be made to your payment method. After a deposit has been completed, there is no way to reverse it. You must use your balance on orders from Starpanel.top.</p>
             <p className="custom-sub-text mt-1 pl-2">You agree that once you complete a payment, you will not file a dispute or a chargeback against us for any reason.</p>
-            <p className="custom-sub-text mt-1 pl-2">If you file a dispute or charge-back against us after a deposit, we reserve the right to terminate all future orders, ban you from our site. We also reserve the right to take away any followers or likes we delivered to your or your client's Instagram/Facebook/Twitter or other social media account.</p>
+            <p className="custom-sub-text mt-1 pl-2">If you file a dispute or charge-back against us after a deposit, we reserve the right to terminate all future orders, ban you from our site. We also reserve the right to take away any followers or likes we delivered to your or your client Instagram/Facebook/Twitter or other social media account.</p>
             <p className="custom-sub-text mt-1 pl-2">Orders placed in Starpanel.top will not be refunded or canceled after they are placed.You will receive a refund credit to your Starpanel.top account if the order is non-deliverable.</p>
             <p className="custom-sub-text mt-1 pl-2">Misplaced or Private account orders will not qualify for a refund. Be sure to confirm each and every order before placing it.</p>
             <p className="custom-sub-text mt-1 pl-2">Fraudulent activity such as using unauthorized or stolen credit cards will lead to termination of your account. There are no exceptions.</p>
@@ -54,7 +54,7 @@ const Terms = () => {
 
             <p className="custom-sub-text mt-2 pl-2">You agree that upon purchasing our services, that you clearly understand and agree with what you are purchasing and will not file a fraudulent dispute via PayPal or any other payment processors.</p>
             <p className="custom-sub-text mt-1 pl-2">Upon a fraudulent attempt to file a dispute, we receive the right, if necessary, to reset all followers and likes, terminate your account and/or permanently ban your IP address.</p>
-            <p className="custom-sub-text mt-1 pl-2">Since Starpanel.top offers non-tangible irrevocable goods, you agree that after the purchase is made you cannot cancel/stop or remove any actions that this initiated. You understand that by Purchasing any goods on Starpanel.top and Starpanel.top this decision is final and you won't be able to reserve it.</p>
+            <p className="custom-sub-text mt-1 pl-2">Since Starpanel.top offers non-tangible irrevocable goods, you agree that after the purchase is made you cannot cancel/stop or remove any actions that this initiated. You understand that by Purchasing any goods on Starpanel.top and Starpanel.top this decision is final and you wont be able to reserve it.</p>
             <p className="custom-sub-text mt-1 pl-2">No refunds or partial are made to Paypal, all credit added must be used in the site.</p>
             <p className="custom-sub-text mt-1 pl-2">We reserve the right to deny Automatic Payments for any users until a manual verification is performed</p>
 
