@@ -4,7 +4,7 @@ const Terms = () => {
 
             <h2 className="custom-text">Terms</h2>
 
-            <p className="custom-sub-text mt-2">
+            <p className="fw-md custom-sub-text mt-2">
                 The use of services provided by Starpanel.top establishes agreement to these terms. By registering or using our services you agree that you have read and fully understood the following terms of Service and Starpanel.top will not be held liable for loss in any way for users who have not read the below terms of service.
             </p>
 
@@ -15,10 +15,10 @@ const Terms = () => {
                 <p className="custom-sub-text mt-1 pl-2">We reserve the right to change these terms of service without notice. You are expected to read all terms of service before placing any order to insure you are up to date with any changes or any future changes.</p>
                 <p className="custom-sub-text mt-1 pl-2">You will only use the Starpanel.top website in a manner which follows all agreements made with Instagram/Facebook/Twitter/Youtube/Other social media site on their individual Terms of Service page. Starpanel.top rates are subject to change at any time without notice. The payment/refund policy stays in effect in the case of rate changes. Starpanel.top does not guarantee a delivery time for any services. We offer our best estimation for when the order will be delivered. This is only an estimation and Starpanel.top   will not refund orders that are processing if you feel they are taking too long. Starpanel.top tries hard to deliver exactly what is expected from us by our re-sellers. In this case, we reserve the right to change a service type if we deem it necessary to complete an order.</p>
 
-                <p className="font-lg fw-md custom-text mt-2">Disclaimer:</p>
+                <p className="font-lg fw-md custom-text mt-3">Disclaimer:</p>
                 <p className="custom-sub-text mt-1">Starpanel.top will not be responsible for any damages you or your business may suffer.</p>
 
-                <p className="font-lg fw-md custom-text mt-2">Liabilities:</p>
+                <p className="font-lg fw-md custom-text mt-3">Liabilities:</p>
                 <p className="custom-sub-text mt-1">Starpanel.top is in no way liable for any account suspension or picture deletion done by Instagram or Twitter or Facebook or YouTube or Other Social Media.</p>
             
                 <p className="font-lg fw-md custom-text mt-3">2. Registration</p>
