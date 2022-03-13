@@ -1,12 +1,75 @@
 import { useState } from 'react';
+import { useEffect, useRef } from "react";
+import { useAuth } from "../../../context/AuthContext";
+// firebase
+import { collection, onSnapshot, orderBy, query, QuerySnapshot, addDoc } from "firebase/firestore";
+import { db } from "../../../firebase/clientApp";
 
 const Contact = () => {
 
     const [ticket, setTicket] = useState({ subject: '', message: '' });
     console.log(ticket);
 
+    // access firestore
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const collectionRef = collection(db, "users");
+
+        const q = query(collectionRef, orderBy("uid"));
+
+        const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
+            setData(QuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.number })));
+        });
+        return unsubscribe;
+
+    }, [])
+
+    // access auth
+    const { user } = useAuth()
+    const currentUser = data.filter(data => user.uid === data.uid);
+
+    const toastRef = useRef();
+
+    // store ticket in database
+    const createTicket = (e) => {
+
+        e.preventDefault();
+
+        if (ticket.subject === '' || ticket.message === '') {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "Please fill all fields";
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg";
+            }, 2000);
+        } else {
+            const collectionRef = collection(db, "tickets");
+            addDoc(collectionRef, {
+                subject: ticket.subject,
+                message: ticket.message,
+                user: currentUser[0].name,
+                userId: currentUser[0].uid,
+                date: new Date().toLocaleDateString(),
+                time: new Date().toLocaleTimeString(),
+                status: 'open',
+            }) 
+            .then(() => {
+                    toastRef.current.className = "toast custom-color-bg";
+                    toastRef.current.children[0].innerHTML = "Ticket placed successfully";
+                    setTimeout(() => {
+                        toastRef.current.className = "toast-hidden custom-custom-bg";
+                        window.location.reload();
+                    }, 2000);
+            })
+        }
+    }
+
     return (
         <>
+
+            <div ref={toastRef} className="toast-hidden custom-error-bg">
+                <p className='fw-md custom-text'>Error! please check your code</p>
+            </div>
 
             <h2 className="custom-text">Contact</h2>
 
@@ -22,7 +85,7 @@ const Contact = () => {
                     </div>
                     <div className="display-f justify-between align-i-center mt-3">
                         <p className="font-lg custom-sub-text">Admins will reach out to you soon!</p>
-                        <button className="custom-btn-rounded custom-text pl-6 pr-6 pt-2 pb-2">Create a ticket</button>
+                        <button className="custom-btn-rounded custom-text pl-6 pr-6 pt-2 pb-2" onClick={createTicket}>Create a ticket</button>
                     </div>
                 </form>
             </div>

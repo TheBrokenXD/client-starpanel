@@ -3,7 +3,6 @@ import { useAuth } from "../../../context/AuthContext";
 // firebase
 import { addDoc, collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase/clientApp";
-import { async } from "@firebase/util";
 
 const Orders = () => {
 
@@ -68,35 +67,35 @@ const Orders = () => {
                                     <p className="font-lg fw-md custom-text">Ordered Date</p>
                                 </div>
                             </div>
-                {orders.map(order => {
-                    return(
-                        order.uid == user.uid ? (
-                            <>
-
-                                <div className="row mt-3">
-                                    <div className="col-4-xs">
-                                        <p className="custom-sub-text">{order.title}</p>
-                                    </div>
-                                    <div className="col-2-xs">
-                                        <p className="custom-sub-text">{order.quantity}</p>
-                                    </div>
-                                    <div className="col-2-xs">
-                                        <p className="custom-sub-text">₹ {order.price}</p>
-                                    </div>
-                                    <div className="col-2-xs">
-                                        <p className="custom-sub-text">{order.status}</p>
-                                    </div>
-                                    <div className="col-2-xs">
-                                        <p className="custom-sub-text">{order.date}</p>
-                                    </div>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                            </>
-                        )
-                    )
-                })}
+                            
+                            {orders.map(order => {
+                                return(
+                                    order.uid == user.uid ? (
+                                        <>
+                                            <div className="row mt-3">
+                                                <div className="col-4-xs">
+                                                    <p className="custom-sub-text">{order.title}</p>
+                                                </div>
+                                                <div className="col-2-xs">
+                                                    <p className="custom-sub-text">{order.quantity}</p>
+                                                </div>
+                                                <div className="col-2-xs">
+                                                    <p className="custom-sub-text">₹ {order.price}</p>
+                                                </div>
+                                                <div className="col-2-xs">
+                                                    <p className="custom-sub-text">{order.status}</p>
+                                                </div>
+                                                <div className="col-2-xs">
+                                                    <p className="custom-sub-text">{order.date}</p>
+                                                </div>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                        </>
+                                    )
+                                )
+                            })}
                 
                         </div>
                     </div>

@@ -138,6 +138,7 @@ const NewOrder = () => {
                 toastRef.current.children[0].innerHTML = "Order placed successfully"
                 setTimeout(() => {
                     toastRef.current.className = "toast-hidden custom-color-bg"
+                    window.location.reload();
                 }, 2000)
             })
         }
