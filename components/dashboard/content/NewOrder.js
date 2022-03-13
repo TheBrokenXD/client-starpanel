@@ -131,7 +131,7 @@ const NewOrder = () => {
                 const collectionRef = collection(db, "users");
                 const docRef = doc(collectionRef, user.uid);
                 updateDoc(docRef, {
-                    balance: currentUser[0].balance - (details.quantity * (services.filter(service => service.title === title)[0].price / services.filter(service => service.title === title)[0].min).toFixed(2))
+                    balance: currentUser[0].balance - (details.quantity * (services.filter(service => service.title === title)[0].price / services.filter(service => service.title === title)[0].min).toFixed(6))
                 })
             }) .then(() => {
                 toastRef.current.className = "toast custom-color-bg";
