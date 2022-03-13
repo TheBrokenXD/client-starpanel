@@ -85,7 +85,7 @@ const Center = () => {
                                     <div className="display-f justify-between align-i-center mt-2">
                                         <p className="font-lg fw-md custom-text">Welcome Back {data.name}!</p>
                                         <div className="display-f align-i-center">
-                                            <p className="font-lg fw-md custom-text pr-2">${data.balance}</p>
+                                            <p className="font-lg fw-md custom-text pr-2">₹{data.balance}</p>
                                             <button className="custom-btn custom-text">Your Profile</button>
                                         </div>
                                     </div>
