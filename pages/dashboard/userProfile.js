@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from '../../firebase/clientApp';
 
-const userProfile = () => {
+const UserProfile = () => {
 
     // access firestore
     const [data, setData] = useState([]);
@@ -52,4 +52,4 @@ const userProfile = () => {
     );
 }
  
-export default userProfile;
+export default UserProfile;
