@@ -93,7 +93,6 @@ const Orders = () => {
                             </>
                         ) : (
                             <>
-                                <p className="custom-text">You have no orders yet!</p>
                             </>
                         )
                     )

@@ -25,6 +25,12 @@ const Navbar = () => {
     
   }
 
+  const closeFunc = () => {
+    animationData.current.className = "sidebar";
+    lottieRef.current.setDirection(-1);
+    lottieRef.current.play();
+  }
+
   const { user, logout } = useAuth()
   const router = useRouter()
 
@@ -42,11 +48,11 @@ const Navbar = () => {
 
       <div ref={animationData} className="sidebar">
         <ul>
-          <li><Link href="/" passHref><a className="font-xl custom-text custom-color-hover">Home</a></Link></li>
+          <li><Link href="/" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Home</a></Link></li>
           <li>
             {user ? (
               <div className="custom-li">
-                <div><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover">Dashboard</a></Link></div>
+                <div><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Dashboard</a></Link></div>
                 <div><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
                   logout()
                   router.push('/signIn')
@@ -54,12 +60,12 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="custom-li">
-                <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover">Sign In</a></Link>
-                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover">Sign Up</a></Link>
+                <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign In</a></Link>
+                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign Up</a></Link>
               </div>
             )}
           </li>
-          <li><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover">Services</a></Link></li>
+          <li><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Services</a></Link></li>
         </ul>
       </div>
 
