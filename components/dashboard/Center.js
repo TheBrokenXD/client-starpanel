@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 // store
@@ -86,7 +87,7 @@ const Center = () => {
                                         <p className="font-lg fw-md custom-text">Welcome Back {data.name}!</p>
                                         <div className="display-f align-i-center">
                                             <p className="font-lg fw-md custom-text pr-2">₹{data.balance}</p>
-                                            <button className="custom-btn custom-text">Your Profile</button>
+                                            <Link href="/dashboard/userProfile" passHref><button className="custom-btn custom-text">Your Profile</button></Link>
                                         </div>
                                     </div>
                                 </>
