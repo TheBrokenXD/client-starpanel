@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useAuth } from "../../../context/AuthContext";
 // firebase
-import { addDoc, collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/clientApp";
 
 const Orders = () => {

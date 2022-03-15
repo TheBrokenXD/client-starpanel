@@ -75,3 +75,41 @@
     justify-content: center;
     gap: 17%;
 }
+
+@mixin modal-profile {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: $base-easing;
+    -webkit-transition: all 1s cubic-bezier(0.77,0,0.18,1);
+    z-index: 1;
+    width: 100%;
+    overflow: auto;
+}
+
+.modal-profile {
+    @include modal();
+    transform: translateY(50%);
+    .modal-content-profile {
+        margin: auto;
+        padding: 20px;
+        width: 60%;
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    }
+}
+
+.modal-hidden-profile {
+    @include modal();
+    transform: translateY(-100%);
+    .modal-content-profile {
+        margin: auto;
+        padding: 20px;
+        width: 60%;
+    }
+}
+

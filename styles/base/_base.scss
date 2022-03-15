@@ -17,6 +17,7 @@ body {
     font-weight: $base-fw;
     transition: $base-easing;
     overflow-y: overlay;
+    scroll-behavior: smooth !important;
 }
 
 main {

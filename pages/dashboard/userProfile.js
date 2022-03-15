@@ -1,54 +1,18 @@
-import { useRef, useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-// store
-import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
-import { db } from '../../firebase/clientApp';
+import Profile from "../../components/dashboard/Profile";
 
 const UserProfile = () => {
-
-    // access firestore
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const collectionRef = collection(db, "users");
-
-        const q = query(collectionRef, orderBy("uid"));
-
-        const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
-            setData(QuerySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.number })));
-        });
-        return unsubscribe;
-
-    }, [])
-
-    console.log(data);
-
-    // access auth
-    const { user } = useAuth()
-
     return (
-        <div className="page-center">
-            <div className="card custom-card-bg p-4">
-                {data.map(data => {
-                    return(
-                        data.uid == user.uid ? (
-                            <>
-                                <p className="custom-text">Display Name : {data.name}</p>
-                                <p className="custom-text">Email : {data.email}</p>
-                                <p className="custom-text">Method : {data.method}</p>
-                                <p className="custom-text">Balance : {data.balance}</p>
-                                <p className="custom-text">Role : {data.role}</p>
-                                <p className="custom-text">UID : {data.uid}</p>
-                                <p className="custom-text">Created : {data.created}</p>
-                            </>
-                        ) : (
-                            <>
-                            </>
-                        )
-                    )
-                })}
+        <>
+
+            <div className="container">
+                <div className="row align-i-center h-screen ml-3 mr-3">
+                    <div className="col-12-xs card custom-card-bg min-h-80p max-h-80p overflow-y-scroll pl-7 pr-7">
+                        <Profile />
+                    </div>
+                </div>
             </div>
-        </div>
+
+        </>
     );
 }
  
