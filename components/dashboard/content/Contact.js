@@ -8,8 +8,7 @@ import { db } from "../../../firebase/clientApp";
 const Contact = () => {
 
     const [ticket, setTicket] = useState({ subject: '', message: '' });
-    console.log(ticket);
-
+    
     // access firestore
     const [data, setData] = useState([]);
 
@@ -54,12 +53,12 @@ const Contact = () => {
                 status: 'open',
             }) 
             .then(() => {
-                    toastRef.current.className = "toast custom-color-bg";
-                    toastRef.current.children[0].innerHTML = "Ticket placed successfully";
-                    setTimeout(() => {
-                        toastRef.current.className = "toast-hidden custom-custom-bg";
-                        window.location.reload();
-                    }, 2000);
+                toastRef.current.className = "toast custom-color-bg";
+                toastRef.current.children[0].innerHTML = "Ticket placed successfully";
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-custom-bg";
+                    window.location.reload();
+                }, 2000);
             })
         }
     }
@@ -80,7 +79,7 @@ const Contact = () => {
                         <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="string" onChange= { (e) => { setTicket({ ...ticket, subject: e.target.value, }) } } />
                     </div>
                     <div className="column mt-2">
-                        <label className='font-lg custom-text' htmlFor='message'>Message</label>
+                        <label className='font-lg custom-text'>Message</label>
                         <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base h-137-px" onChange= { (e) => { setTicket({ ...ticket, message: e.target.value, }) } } />
                     </div>
                     <div className="display-f justify-between align-i-center mt-3">

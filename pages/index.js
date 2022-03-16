@@ -3,9 +3,6 @@ import Image from 'next/image'
 import Link from "next/link";
 // components
 import Main from '../components/Main'
-// firebase auth
-import firebase from '../firebase/clientApp';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function Home() {
 
