@@ -26,7 +26,6 @@ const Profile = () => {
     // access auth
     const { user } = useAuth()
     const currentUser = data.filter(data => user.uid === data.uid);
-    console.log(currentUser);
 
     // access orders
     const [orders, setOrders] = useState([]);
