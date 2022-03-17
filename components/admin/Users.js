@@ -46,7 +46,7 @@ const Users = () => {
 
                 <div className="col-12-xs">
 
-                    <p className="font-lg fw-md custom-text mt-3">User List</p>
+                    <p className="font-lg fw-bold custom-text mt-3">User List</p>
 
                     <div className="card custom-variant-1-bg p-4 mt-3">
                         
@@ -87,14 +87,14 @@ const Users = () => {
                         
                         {displayUsers.map(data => {
                             return (
-                                    <div className="row align-i-center pt-3" key={data.uid}>
-                                        <div className="col-2-xs"><p className="custom-sub-text">{data.name}</p></div>
-                                        <div className="col-3-xs"><p className="custom-sub-text">{data.email}</p></div>
-                                        <div className="col-2-xs"><p className="custom-sub-text">{data.balance}</p></div>
-                                        <div className="col-1-xs"><p className="custom-sub-text">{data.role}</p></div>
-                                        <div className="col-2-xs overflow-hidden"><p className="custom-sub-text">{data.created}</p></div>
-                                        <div className="col-2-xs"><button className='custom-btn-rounded custom-text'>Options</button></div>
-                                    </div>
+                                <div className="row align-i-center pt-3" key={data.uid}>
+                                    <div className="col-2-xs"><p className="custom-sub-text">{data.name}</p></div>
+                                    <div className="col-3-xs"><p className="custom-sub-text">{data.email}</p></div>
+                                    <div className="col-2-xs"><p className="custom-sub-text">{data.balance}</p></div>
+                                    <div className="col-1-xs"><p className="custom-sub-text">{data.role}</p></div>
+                                    <div className="col-2-xs overflow-hidden"><p className="custom-sub-text">{data.created}</p></div>
+                                    <div className="col-2-xs"><button className='custom-btn-rounded custom-text'>Options</button></div>
+                                </div>
                             )
                         })}
 

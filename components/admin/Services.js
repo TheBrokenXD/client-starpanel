@@ -31,7 +31,7 @@ const Services = () => {
         <div>
 
             <div className="display-f justify-between mt-3">
-                <p className="font-lg fw-md custom-text">Service List</p>
+                <p className="font-lg fw-bold custom-text">Service List</p>
                 <Link href="/admin/addService" passHref><button className="btn custom-btn-rounded custom-text">Add a new Service</button></Link>
             </div>
             

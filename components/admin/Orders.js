@@ -28,7 +28,7 @@ const Orders = () => {
                 <div className="row">
 
                     <div className="col-12-xs">
-                        <p className="font-lg fw-md custom-text mt-3">Order List</p>
+                        <p className="font-lg fw-bold custom-text mt-3">Order List</p>
                         <div className="card custom-variant-1-bg p-4 mt-3">
                             <div className="row">
                                 <div className="col-5-xs custom-text"><h3>Title</h3></div>

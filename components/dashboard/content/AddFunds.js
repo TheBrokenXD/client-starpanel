@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { PayPalButton } from "react-paypal-button-v2";
 import { useAuth } from '../../../context/AuthContext';
 // store
@@ -53,6 +53,8 @@ const AddFunds = () => {
     const paypalPriceInt = price / inrToUsd;
     const paypalPrice = Math.floor(paypalPriceInt);
     console.log(paypalPrice);
+
+    const toastRef = useRef();
     
     return (
         <>
@@ -65,7 +67,9 @@ const AddFunds = () => {
                     </div>
                         {paidFor ? (
                             <>
-                                <p className='custom-text'>Thank You</p>
+                                <div ref={toastRef} className="toast-hidden custom-error-bg">
+                                    <p className='fw-md custom-text'>Error! please check your code</p>
+                                </div>
                             </>
                         ) : (
                             <>
@@ -74,10 +78,14 @@ const AddFunds = () => {
                                         <PayPalButton 
                                             amount={paypalPrice}
                                             onSuccess={(details, data) => {
-                                                alert("Transaction completed by " + details.payer.name.given_name);
                                                 setPaidFor(true);
                                                 const collectionRef = doc(db, "users", user.uid);
                                                 updateDoc(collectionRef, { balance: currentUser[0].balance + price });
+                                                toastRef.current.className = "toast custom-color-bg";
+                                                toastRef.current.children[0].innerHTML = "Order placed successfully"
+                                                setTimeout(() => {
+                                                    toastRef.current.className = "toast-hidden custom-color-bg"
+                                                }, 2000)
                                             }}
                                         />
                                     </div>

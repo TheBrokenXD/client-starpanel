@@ -76,7 +76,7 @@ const Contact = () => {
                 <form>
                     <div className="column">
                         <label className='font-lg custom-text'>Subject</label>
-                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="string" onChange= { (e) => { setTicket({ ...ticket, subject: e.target.value, }) } } />
+                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="Brief your subject" onChange= { (e) => { setTicket({ ...ticket, subject: e.target.value, }) } } />
                     </div>
                     <div className="column mt-2">
                         <label className='font-lg custom-text'>Message</label>

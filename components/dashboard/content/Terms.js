@@ -10,7 +10,7 @@ const Terms = () => {
 
             <div className="card custom-variant-1-bg p-4 mt-3">
 
-                <p className="font-lg fw-md custom-text mt-3">1. General</p>
+                <p className="font-lg fw-md custom-text">1. General</p>
                 <p className="custom-sub-text mt-1 pl-2">By placing an order with Starpanel.top , you automatically accept all the below listed terms of service weather you read them or not.</p>
                 <p className="custom-sub-text mt-1 pl-2">We reserve the right to change these terms of service without notice. You are expected to read all terms of service before placing any order to insure you are up to date with any changes or any future changes.</p>
                 <p className="custom-sub-text mt-1 pl-2">You will only use the Starpanel.top website in a manner which follows all agreements made with Instagram/Facebook/Twitter/Youtube/Other social media site on their individual Terms of Service page. Starpanel.top rates are subject to change at any time without notice. The payment/refund policy stays in effect in the case of rate changes. Starpanel.top does not guarantee a delivery time for any services. We offer our best estimation for when the order will be delivered. This is only an estimation and Starpanel.top   will not refund orders that are processing if you feel they are taking too long. Starpanel.top tries hard to deliver exactly what is expected from us by our re-sellers. In this case, we reserve the right to change a service type if we deem it necessary to complete an order.</p>
