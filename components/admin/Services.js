@@ -30,13 +30,13 @@ const Services = () => {
     return (
         <div>
 
-            <div className="display-f justify-between">
+            <div className="display-f justify-between mt-3">
                 <p className="font-lg fw-md custom-text">Service List</p>
                 <Link href="/admin/addService" passHref><button className="btn custom-btn-rounded custom-text">Add a new Service</button></Link>
             </div>
             
 
-            <div className="row p-4 gap-1">
+            <div className="row gap-1 mt-3">
                 <div className="col-3-xs">
                     <Link href="#one" passHref><div className="card custom-card-bg-gradient p-2 pointer">
                         <h1 className="custom-text fw-md">Social</h1>
@@ -59,10 +59,10 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="row pl-4 pr-4" id="one">
+            <div className="row" id="one">
 
-                <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                <div className="col-12-xs mt-3">
+                    <div className="card custom-variant-1-bg p-4">
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -85,13 +85,13 @@ const Services = () => {
                             return(
                                 service.category === "social" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-1-xs">
+                                            <div className="col-2-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
@@ -117,10 +117,10 @@ const Services = () => {
                 
             </div>
 
-            <div className="row pl-4 pr-4 mt-2" id="two">
+            <div className="row mt-2" id="two">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-4">
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -143,7 +143,7 @@ const Services = () => {
                             return(
                                 service.category === "web" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
@@ -175,10 +175,10 @@ const Services = () => {
                 
             </div>    
 
-            <div className="row pl-4 pr-4 mt-2 mb-2" id="three">
+            <div className="row mt-2 mb-2" id="three">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-4">
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -201,7 +201,7 @@ const Services = () => {
                             return(
                                 service.category === "telegram" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
@@ -233,10 +233,10 @@ const Services = () => {
 
             </div>
 
-            <div className="row pl-4 pr-4 mt-2 mb-2" id="four">
+            <div className="row mt-2 mb-2" id="four">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-4">
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -259,7 +259,7 @@ const Services = () => {
                             return(
                                 service.category === "premium" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>

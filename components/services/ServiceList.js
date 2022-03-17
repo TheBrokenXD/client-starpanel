@@ -84,7 +84,7 @@ const ServiceList = () => {
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
                                             <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-1-xs">
+                                            <div className="col-2-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>

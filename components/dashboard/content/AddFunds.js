@@ -69,16 +69,18 @@ const AddFunds = () => {
                             </>
                         ) : (
                             <>
-                                <p className='font-lg custom-text mb-3'>Pay with PayPal</p>
-                                    <PayPalButton 
-                                        amount={paypalPrice}
-                                        onSuccess={(details, data) => {
-                                            alert("Transaction completed by " + details.payer.name.given_name);
-                                            setPaidFor(true);
-                                            const collectionRef = doc(db, "users", user.uid);
-                                            updateDoc(collectionRef, { balance: currentUser[0].balance + price });
-                                        }}
-                                    />
+                                <div>
+                                    <p className='font-lg custom-text mb-3'>Pay with PayPal</p>
+                                        <PayPalButton 
+                                            amount={paypalPrice}
+                                            onSuccess={(details, data) => {
+                                                alert("Transaction completed by " + details.payer.name.given_name);
+                                                setPaidFor(true);
+                                                const collectionRef = doc(db, "users", user.uid);
+                                                updateDoc(collectionRef, { balance: currentUser[0].balance + price });
+                                            }}
+                                        />
+                                    </div>
                             </>
                         )}
                     </form>
