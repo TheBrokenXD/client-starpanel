@@ -59,7 +59,7 @@ const NewOrder = () => {
         price: ''
     })
 
-    const [title, setTitle] = useState('Instagram Likes (Real, HQ, Indian, Non Drop)');
+    const [title, setTitle] = useState('');
 
     const activeTitle = (e) => {
         setTitle(e.target.value);
@@ -167,7 +167,7 @@ const NewOrder = () => {
                     <div className="mt-3 column">
                         <p className="font-lg custom-text">Services</p>
                         <select required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" id="services" onChange={activeTitle}>
-
+                            <option value="">Select a service</option>
                             {
                                 active == '1' ? (
                                     social.map(service => (
