@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 // styles
+import '../styles/nprogress.css'
 import '../styles/index.css'
 // font-awesome
 import { config } from '@fortawesome/fontawesome-svg-core'

@@ -5,6 +5,8 @@ import Lottie from "lottie-react";
 import Data from "../public/data.json";
 import { useAuth } from "../context/AuthContext";
 import { Router, useRouter } from "next/router";
+// framer motion
+import { motion } from "framer-motion";
 
 const Navbar = () => {
 
@@ -38,7 +40,7 @@ const Navbar = () => {
     <div className="nav">
 
       <div className="nav-content">
-        <Link href="/" passHref><p className="nav-brand custom-text">Starpanel.</p></Link>
+        <Link href="/" passHref><p className="nav-brand custom-text unselectable">Starpanel.</p></Link>
         <div className="nav-burger">
           <div className="lottie" onClick={handleClick} >
             <Lottie lottieRef={lottieRef} animationData={Data} loop={false} autoplay={false} />
@@ -48,24 +50,25 @@ const Navbar = () => {
 
       <div ref={animationData} className="sidebar">
         <ul>
-          <li><Link href="/" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Home</a></Link></li>
+          <motion.li whileHover={{ scale: 1.1, originX: 0, }} ><Link href="/" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Home</a></Link></motion.li>
           <li>
             {user ? (
               <div className="custom-li">
-                <div><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Dashboard</a></Link></div>
-                <div><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
+                <motion.div whileHover={{ scale: 1.1, originX: 0 }} ><Link href="/dashboard" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Dashboard</a></Link></motion.div>
+                <motion.div whileHover={{ scale: 1.1, originX: 0 }} ><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover mt-5" onClick={() => {
                   logout()
                   router.push('/signIn')
-                }} >Sign out</a></Link></div>
+                  closeFunc()
+                }} >Sign out</a></Link></motion.div>
               </div>
             ) : (
               <div className="custom-li">
-                <Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign In</a></Link>
-                <Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign Up</a></Link>
+                <motion.div whileHover={{ scale: 1.1, originX: 0 }} ><Link href="/signIn" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign In</a></Link></motion.div>
+                <motion.div whileHover={{ scale: 1.1, originX: 0 }} ><Link href="/signUp" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Sign Up</a></Link></motion.div>
               </div>
             )}
           </li>
-          <li><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Services</a></Link></li>
+          <motion.li whileHover={{ scale: 1.1, originX: 0 }} ><Link href="/services" passHref><a className="font-xl custom-text custom-color-hover" onClick={closeFunc}>Services</a></Link></motion.li>
         </ul>
       </div>
 
