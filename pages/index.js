@@ -25,7 +25,7 @@ export default function Home() {
     <>
 
       <Head>
-        <title>Affiliate - Starpanel</title>
+        <title>Starpanel - SMM Panel</title>
       </Head>
 
       {/* don't remove this empty div */}

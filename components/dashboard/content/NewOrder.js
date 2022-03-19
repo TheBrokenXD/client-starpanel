@@ -1,9 +1,9 @@
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { useAuth } from "../../../context/AuthContext";
 // firebase
-import { addDoc, collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase/clientApp";
-import { async } from "@firebase/util";
 
 const NewOrder = () => {
 
@@ -78,6 +78,13 @@ const NewOrder = () => {
     }
 
     const toastRef = useRef();
+    const modalRef = useRef();
+    const openRef = () => {
+        modalRef.current.className = "modal";
+    }
+    const closeRef = () => {
+        modalRef.current.className = "modal-hidden";
+    }
 
     const regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
 
@@ -115,8 +122,8 @@ const NewOrder = () => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
         } else {
-            const collectionRef = collection(db, "orders");
-            addDoc(collectionRef, {
+            const collectionRef = doc(collection(db, "orders"));
+            setDoc(collectionRef, {
                 title: details.title,
                 link: details.link,
                 quantity: details.quantity,
@@ -125,7 +132,7 @@ const NewOrder = () => {
                 status: 'pending',
                 date: new Date().toLocaleDateString(),
                 time: new Date().toLocaleTimeString(),
-                orderId: `${new Date().getTime()}${user.uid}`
+                orderId: collectionRef.id
             })
             .then(() => {
                 const collectionRef = collection(db, "users");
@@ -146,6 +153,20 @@ const NewOrder = () => {
 
     return (
         <>
+
+            <div ref={modalRef} className="modal-hidden">
+                <div className="modal-content card black-bg custom-card-bg-gradient base-shadow">
+                    <div>
+                        <div className="display-f align-i-center justify-between">
+                            <p className="font-lg fw-lg custom-text">Info</p>
+                            <span className="font-xl pointer custom-text" onClick={closeRef}>&times;</span>
+                        </div>
+                        <div className="mt-2">
+                            <p className="font=lg custom-sub-text">Enter an appropriate link. For example, If you order instagram followers, Enter your Instagram Profile link. If you dont have any link appropriate, Enter your telegram link. We will contact you soon. If you have any doubts, feel free to contact us!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div ref={toastRef} className="toast-hidden custom-error-bg">
                 <p className='fw-md custom-text'>Error! please check your code</p>
@@ -205,8 +226,13 @@ const NewOrder = () => {
                         }
                     </div>
                     <div className="column">
-                        <label className='mt-3 font-lg custom-text fw-md'>Link</label>
-                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="string" onChange={ (e) => { setDetails({ ...details, link: e.target.value, }) } } />
+                        <div className="display-f mt-3">
+                            <label className='font-lg custom-text fw-md'>Link</label>
+                            <div className="pointer ml-2" onClick={openRef}>
+                                <Image src="/svg/dashboard/info.svg" height={30} width={30} alt="icon" />
+                            </div>
+                        </div>
+                        <input type="text" required className="mt-1 input-t custom-card-bg custom-sub-text shadow-base" placeholder="Enter a link" onChange={ (e) => { setDetails({ ...details, link: e.target.value, }) } } />
                     </div>
                     <div className="mt-3 column">
                         <label className='font-lg custom-text fw-md'>Quantity</label>

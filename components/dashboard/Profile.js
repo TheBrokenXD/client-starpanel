@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useAuth } from "../../context/AuthContext";
 // store
 import { collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc } from "firebase/firestore";
-import { updatePassword } from "firebase/auth";
 import { db } from '../../firebase/clientApp';
 
 const Profile = () => {

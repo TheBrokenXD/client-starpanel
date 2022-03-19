@@ -61,7 +61,7 @@ const SignUp = () => {
         <>
 
         <Head>
-            <title>Affiliate - Starpanel</title>
+            <title>Starpanel - SignUp</title>
         </Head>
 
         <div className="container">

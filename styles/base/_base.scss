@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: $base-font;
     letter-spacing: $letter-spacing;
+    scroll-behavior: smooth !important;
 }
 
 html {
@@ -202,6 +203,10 @@ template {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.smooth {
+    scroll-behavior: smooth;
 }
 
 // scrollbar

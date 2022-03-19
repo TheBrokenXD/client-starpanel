@@ -31,8 +31,9 @@ const AddService = () => {
     if(data.filter(item => item.uid === user.uid).length > 0) {
         return (
             <>
+            
                 <Head>
-                    <title>Affiliate - Starpanel | Admin</title>
+                    <title>Starpanel - Add Service</title>
                 </Head>
 
                 <div className="container">

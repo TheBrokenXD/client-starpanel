@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Head from 'next/head'
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react";
 // components
@@ -64,6 +64,11 @@ const Index = () => {
 
         return (
             <>
+
+                <Head>
+                    <title>Starpanel - Dashboard</title>
+                </Head>
+
                 <div className="container">
 
                     <div className="row align-i-center h-screen">
@@ -100,7 +105,7 @@ const Index = () => {
                                             <div className="col-4-xs">
                                                 <div className="card custom-card-bg-gradient p-2 mt-3">
                                                     <p className="font-lg fw-md custom-text">Services</p>
-                                                    <div onClick={servicesClick}><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Service</button></div>
+                                                    <div onClick={servicesClick}><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Edit Services</button></div>
                                                 </div>
                                             </div>
                                         </div>

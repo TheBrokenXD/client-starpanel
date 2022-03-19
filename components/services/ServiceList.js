@@ -55,7 +55,11 @@ const ServiceList = () => {
             <div className="row pl-4 pr-4" id="one">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-3">
+
+                        <div className="card custom-card-bg-gradient mb-3 base-shadow">
+                            <p className="font-lg fw-bold custom-text text-center">Social</p>
+                        </div>
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -78,7 +82,7 @@ const ServiceList = () => {
                             return(
                                 service.category === "social" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
@@ -113,7 +117,11 @@ const ServiceList = () => {
             <div className="row pl-4 pr-4 mt-2" id="two">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-3">
+
+                        <div className="card custom-card-bg-gradient mb-3 base-shadow">
+                            <p className="font-lg fw-bold custom-text text-center">Web</p>
+                        </div>
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -136,7 +144,7 @@ const ServiceList = () => {
                             return(
                                 service.category === "web" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
@@ -171,7 +179,11 @@ const ServiceList = () => {
             <div className="row pl-4 pr-4 mt-2 mb-2" id="three">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-3">
+
+                        <div className="card custom-card-bg-gradient mb-3 base-shadow">
+                            <p className="font-lg fw-bold custom-text text-center">Telegram</p>
+                        </div>
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -194,7 +206,7 @@ const ServiceList = () => {
                             return(
                                 service.category === "telegram" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
@@ -229,7 +241,11 @@ const ServiceList = () => {
             <div className="row pl-4 pr-4 mt-2 mb-2" id="four">
 
                 <div className="col-12-xs">
-                    <div className="card custom-hover-bg p-3">
+                    <div className="card custom-variant-1-bg p-3">
+
+                        <div className="card custom-card-bg-gradient mb-3 base-shadow">
+                            <p className="font-lg fw-bold custom-text text-center">Premium</p>
+                        </div>
                         
                         <div className="row">
                             <div className="col-1-xs custom-text"><h3>ID</h3></div>
@@ -252,7 +268,7 @@ const ServiceList = () => {
                             return(
                                 service.category === "premium" ? (
                                     <>
-                                        <div key={service.id} className="row align-i-center custom-color-bg-hover pt-2">
+                                        <div key={service.id} className="row align-i-center pt-2">
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
                                             <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
                                             <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>

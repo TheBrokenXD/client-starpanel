@@ -23,7 +23,7 @@ const Services = () => {
         <>
 
         <Head>
-            <title>Affiliate - Starpanel</title>
+            <title>Starpanel - Services</title>
         </Head>
 
         <div className="container">

@@ -3,7 +3,7 @@ import Link from "next/link"
 // react
 import { useState, useRef } from "react";
 // firebase
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/clientApp';
 
 const NewForm = () => {
@@ -43,9 +43,8 @@ const NewForm = () => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
         } else {
-            const collectionRef = collection(db, "services")
-            const docRef = await addDoc(collectionRef, { ...service })
-            setService({ limited: 'nope' })
+            const collectionRef = doc(collection(db, "services"))
+            setDoc(collectionRef, { ...service, uid: collectionRef.id })
             toastRef.current.className = "toast custom-color-bg";
             toastRef.current.children[0].innerHTML = `Service ${service.title} is added successfully`
             setTimeout(() => {

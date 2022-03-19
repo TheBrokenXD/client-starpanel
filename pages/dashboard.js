@@ -9,7 +9,7 @@ const Dashboard = () => {
         <>
 
             <Head>
-                <title>Affiliate - Starpanel</title>
+                <title>Starpanel - Dashboard</title>
             </Head>
 
             <div className="container">

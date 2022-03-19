@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // firebase
 import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
+import Link from "next/link";
 
 const Limited = () => {
 
@@ -33,7 +34,7 @@ const Limited = () => {
                             <div>
                                 <p className="custom-sub-text">Price: {service.price}</p>
                                 <p className="custom-sub-text">ID: {service.number}</p>
-                                <button className="custom-btn custom-text pl-4 pr-4 mt-3">Buy</button>
+                                <Link href="/dashboard"><button className="custom-btn custom-text pl-4 pr-4 mt-3">Buy</button></Link>
                             </div>
                         </div>
                     ) : null

@@ -88,6 +88,9 @@ const Center = () => {
                                         <div className="display-f align-i-center">
                                             <p className="font-lg fw-md custom-text pr-2">₹{data.balance}</p>
                                             <Link href="/dashboard/userProfile" passHref><button className="custom-btn custom-text">Your Profile</button></Link>
+                                            {data.role == "admin" ? (
+                                                <Link href="/admin" passHref><button className="custom-btn custom-text ml-2">Admin Panel</button></Link>
+                                            ) : ( null )}
                                         </div>
                                     </div>
                                 </>

@@ -81,7 +81,7 @@ const SignIn = () => {
         } else {
             try {
                 await signIn(data.email, data.password)
-                router.push('/services')
+                router.push('/dashboard')
             } catch (err) {
                 toastRef.current.className = "toast custom-error-bg";
                 toastRef.current.children[0].innerHTML = err.message
@@ -103,7 +103,7 @@ const SignIn = () => {
         <>
 
         <Head>
-            <title>Affiliate - Starpanel</title>
+            <title>Starpanel - SignIn</title>
         </Head>
 
         <div className="container">
