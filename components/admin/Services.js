@@ -3,7 +3,7 @@ import Image from "next/image"
 // react
 import { useEffect, useState, useRef } from "react";
 // firebase
-import { collection, onSnapshot, orderBy, query, QuerySnapshot, doc, updateDoc } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, QuerySnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 
 const Services = () => {
@@ -38,7 +38,6 @@ const Services = () => {
 
     // clicked service
     const [clickedService, setClickedService] = useState();
-    console.log(clickedService);
 
     // update data
     const [updateService, setUpdateService] = useState({ number: 0, title: '', price: '', description: '', min: '', max: '', limited: 'nope' });
@@ -66,6 +65,14 @@ const Services = () => {
                 window.location.reload();
             }, 100)
         }
+    }
+
+    // delete data
+    const handleDelete = (e) => {
+        e.preventDefault();
+        const collectionRef = doc(db, "services", clickedService.uid);
+        deleteDoc(collectionRef)
+        closeRef()
     }
 
     return (
@@ -165,7 +172,22 @@ const Services = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button className="custom-btn custom-text mt-2 shadow-base" onClick={handleUpdate}>Save Changes</button>
+                            <div className='display-f justify-between align-i-center mt-1'>
+                                <div className='display-f align-i-center'>
+                                    <div className='checklist'>
+                                        <input type="checkbox" id="input-c-id" className='input-c'
+                                            onChange={(e) => {
+                                                e.target.checked ? setUpdateService({ ...updateService, limited: 'yup' }) : setUpdateService({ ...updateService, limited: 'nope' })
+                                            }}
+                                        />
+                                        <label htmlFor="input-c-id" className='input-c-label'>Limited</label>
+                                    </div>
+                                </div>
+                                <div className="display-f">
+                                    <button className="custom-btn custom-text shadow-base" onClick={handleDelete} >Delete Service</button>
+                                    <button className="custom-btn custom-text shadow-base ml-2" onClick={handleUpdate}>Save Changes</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

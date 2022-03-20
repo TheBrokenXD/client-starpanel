@@ -13,7 +13,14 @@ const NewForm = () => {
 
     // adding new service
     const [service, setService] = useState({ number: 0, title: '', category: '', price: '', description: '', min: '', max: '', limited: 'nope' });
-    console.log(service);
+    
+    const checkHandle = (e) => {
+        if (e.target.checked) {
+            setService({ ...service, limited: 'yup' });
+        } else {
+            setService({ ...service, limited: 'nope' });
+        }
+    }
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -148,11 +155,17 @@ const NewForm = () => {
                 </div>
             </div>
 
-            <div className='display-f'>
+            <div className='display-f justify-between align-i-center mt-1'>
+                <div className='display-f align-i-center'>
+                    <div className='checklist'>
+                        <input type="checkbox" id="input-c-id" className='input-c' onChange={checkHandle} />
+                        <label htmlFor="input-c-id" className='input-c-label'>Limited</label>
+                    </div>
+                </div>
                 <button type="submit" onClick={onSubmit} className="custom-btn-rounded custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Add Service</button>
             </div>
 
-            </form>
+        </form>
 
         </>
     );
