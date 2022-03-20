@@ -1,7 +1,7 @@
 // firebase
 import { useEffect, useState, useRef } from "react";
 // store
-import { collection, onSnapshot, orderBy, query, QuerySnapshot, doc, updateDoc } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, QuerySnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 
 const Orders = () => {
@@ -59,6 +59,14 @@ const Orders = () => {
         }
     }
 
+    // delete order
+    const handleDelete = (e) => {
+        e.preventDefault();
+        const collectionRef = doc(db, "orders", clickedOrder.id);
+        deleteDoc(collectionRef);
+        closeRef();
+    }
+
     return (
         <>
 
@@ -79,6 +87,7 @@ const Orders = () => {
                             <p className="custom-text text-center mt-2">Link - {clickedOrder.link}</p>
                             <div className="display-f justify-center mt-2">
                                 <button className="custom-btn custom-text shadow-base pl-5 pr-5" onClick={handleUpdate}>Invert</button>
+                                <button className="custom-btn custom-text ml-2" onClick={handleDelete}>Delete Order</button>
                             </div>
                         </form>
                     </div>

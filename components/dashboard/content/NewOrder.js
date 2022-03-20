@@ -115,7 +115,7 @@ const NewOrder = () => {
             setTimeout(() => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
-        } else if (currentUser[0].balance < details.price) {
+        } else if (Number(currentUser[0].balance) < details.quantity * (services.filter(service => service.title === title)[0].price / services.filter(service => service.title === title)[0].min)) {
             toastRef.current.className = "toast custom-error-bg";
             toastRef.current.children[0].innerHTML = "Insufficient funds"
             setTimeout(() => {
