@@ -99,6 +99,7 @@ const SignIn = () => {
 
     const handleTelegramResponse = async (response) => {
         console.log(response);
+        const { response, TelegramSignIn } = useAuth()
         try {
             await TelegramSignIn(response.id, response.username)
         } catch (err) {
