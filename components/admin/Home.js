@@ -40,6 +40,7 @@ const Home = () => {
     // display last 4 orders
     const displayOrders = orders.slice(0, 4);
 
+    const toastRef = useRef();
     // modal
     const modalRef = useRef();
     const openRef = () => {
@@ -68,10 +69,18 @@ const Home = () => {
         e.preventDefault();
         const collectionRef = doc(db, "users", clickedUser.id);
         if (clickedUser.role === "admin") {
-            updateDoc(collectionRef, {
-                role: "user",
-            });
-            closeRef();
+            if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+                toastRef.current.className = "toast custom-error-bg";
+                toastRef.current.children[0].innerHTML = "You can't change the role of the owner";
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-error-bg"
+                }, 2000)
+            } else {
+                updateDoc(collectionRef, {
+                    role: "user",
+                });
+                closeRef();
+            }
         }
         else {
             updateDoc(collectionRef, {
@@ -87,9 +96,21 @@ const Home = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        const collectionRef = doc(db, "users", clickedUser.id);
-        updateDoc(collectionRef, { balance: updateData.balance });
-        closeRef();
+        if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2" && currentUser[0].uid !== "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "You cannot change the balance of the owner";
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        } else if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2" && currentUser[0].uid === "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+            const collectionRef = doc(db, "users", clickedUser.id);
+            updateDoc(collectionRef, { balance: updateData.balance });
+            closeRef();
+        } else {
+            const collectionRef = doc(db, "users", clickedUser.id);
+            updateDoc(collectionRef, { balance: updateData.balance });
+            closeRef();
+        }
     }
 
     // clicked order
@@ -119,6 +140,10 @@ const Home = () => {
 
     return (
         <>
+
+            <div ref={toastRef} className="toast-hidden custom-error-bg">
+                <p className='fw-md custom-text'>Error! please check your code</p>
+            </div>
 
             <div ref={modalRef} className="modal-hidden-profile">
                 <div className="modal-content-profile card black-bg custom-card-bg-gradient base-shadow">

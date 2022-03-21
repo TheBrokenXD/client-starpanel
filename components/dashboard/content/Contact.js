@@ -55,6 +55,12 @@ const Contact = () => {
             .then(() => {
                 toastRef.current.className = "toast custom-color-bg";
                 toastRef.current.children[0].innerHTML = "Ticket placed successfully";
+
+                const text = `New Ticket: ${ticket.subject} by ${currentUser[0].name}. Message: ${ticket.message}, User ID: ${currentUser[0].uid}, Date: ${new Date().toLocaleDateString()}, Time: ${new Date().toLocaleTimeString()}`;
+
+                const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=1226737938&text=" + text;
+                fetch(url).then(res => res.json())
+
                 setTimeout(() => {
                     toastRef.current.className = "toast-hidden custom-custom-bg";
                     window.location.reload();

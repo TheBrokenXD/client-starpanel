@@ -8,8 +8,6 @@ import {
 } from 'firebase/auth'
 import { auth, db } from "../firebase/clientApp"
 import { doc, setDoc } from 'firebase/firestore';
-// telegraf
-import { Telegraf } from 'telegraf'
 
 const AuthContext = createContext({})
 
@@ -39,7 +37,6 @@ export const AuthContextProvider = ({children}) => {
     const signUp = async (email, password, name) => {
         return createUserWithEmailAndPassword(auth, email, password)
         .then( () => {
-
             // convert date to proper format
             const time = auth.currentUser.metadata.creationTime;
             const convert = new Date(time);
@@ -62,13 +59,10 @@ export const AuthContextProvider = ({children}) => {
                 console.log(error)
             })
 
-            const bot = new Telegraf('5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI');
-            bot.start((ctx) => {
-                ctx.reply('Welcome!')
-            }
-            );
-            bot.launch();
-            
+            const text = `Welcome to Starpanel, ${name}! Email: ${email}, UID: ${auth.currentUser.uid}, Method: Email, Role: user, Balance: 0, Created at ${dateWithMonthAndYear}`
+
+            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=1226737938&text=" + text;
+            fetch(url).then(res => res.json())
 
         })
     }

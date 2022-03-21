@@ -19,6 +19,11 @@ const AddFunds = () => {
         script.src = "https://www.paypal.com/sdk/js?client-id=ATlyE-3p215o9GT6HM3FsGFRs3zUBybJMtMkKqPutwVgfJXPwmN7HhhJDSYovJEkYUkIooPmSHBDl5j2"
         script.addEventListener("load", () => setLoaded(true))
         document.body.appendChild(script);
+
+        const scriptTwo = document.createElement('script');
+        scriptTwo.src = "https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/.js"
+        scriptTwo.addEventListener("load", () => setLoaded(true))
+        document.body.appendChild(scriptTwo);
     }, [])
 
     // access firestore
@@ -52,7 +57,6 @@ const AddFunds = () => {
     }, [])
     const paypalPriceInt = price / inrToUsd;
     const paypalPrice = Math.floor(paypalPriceInt);
-    console.log(paypalPrice);
 
     const toastRef = useRef();
     

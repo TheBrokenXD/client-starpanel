@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { collection, onSnapshot, orderBy, query, QuerySnapshot, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 import { getAuth } from "firebase/auth";
+import { useAuth } from "../../context/AuthContext";
 
 const Users = () => {
 
@@ -34,10 +35,15 @@ const Users = () => {
 
     }, [])
 
+    // access auth
+    const { user } = useAuth()
+    const currentUser = data.filter(data => user.uid === data.uid);
+
     // display admins
     const displayAdmins = data.filter(user => user.role === "admin");
     const displayUsers = data.filter(user => user.role === "user");
 
+    const toastRef = useRef();
     // modal
     const modalRef = useRef();
     const openRef = () => {
@@ -60,10 +66,18 @@ const Users = () => {
         e.preventDefault();
         const collectionRef = doc(db, "users", clickedUser.id);
         if (clickedUser.role === "admin") {
-            updateDoc(collectionRef, {
-                role: "user",
-            });
-            closeRef();
+            if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+                toastRef.current.className = "toast custom-error-bg";
+                toastRef.current.children[0].innerHTML = "You can't change the role of the owner";
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-error-bg"
+                }, 2000)
+            } else {
+                updateDoc(collectionRef, {
+                    role: "user",
+                });
+                closeRef();
+            }
         }
         else {
             updateDoc(collectionRef, {
@@ -79,13 +93,29 @@ const Users = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        const collectionRef = doc(db, "users", clickedUser.id);
-        updateDoc(collectionRef, { balance: updateData.balance });
-        closeRef();
+        if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2" && currentUser[0].uid !== "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "You cannot change the balance of the owner";
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        } else if (clickedUser.id === "3eFjyUmMxkfnbAXAEKShjJHd6rA2" && currentUser[0].uid === "3eFjyUmMxkfnbAXAEKShjJHd6rA2") {
+            const collectionRef = doc(db, "users", clickedUser.id);
+            updateDoc(collectionRef, { balance: updateData.balance });
+            closeRef();
+        } else {
+            const collectionRef = doc(db, "users", clickedUser.id);
+            updateDoc(collectionRef, { balance: updateData.balance });
+            closeRef();
+        }
     }
 
     return (
         <>
+
+            <div ref={toastRef} className="toast-hidden custom-error-bg">
+                <p className='fw-md custom-text'>Error! please check your code</p>
+            </div>
 
             <div ref={modalRef} className="modal-hidden-profile">
                 <div className="modal-content-profile card black-bg custom-card-bg-gradient base-shadow">

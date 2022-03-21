@@ -46,9 +46,12 @@ const SignIn = () => {
                 method: 'Google',
                 balance: 0,
                 created: dateWithMonthAndYear
-            }).catch((error) => {
-                console.log(error)
             })
+
+            const text = `${user.displayName} Signed in using Google. Email: ${user.email}, UID: ${user.uid}, Method: Google, Role: user, Balance: 0, Created at ${dateWithMonthAndYear}`
+                
+            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=1226737938&text=" + text;
+            fetch(url).then(res => res.json())  
             
         })
         .catch((error) => {
