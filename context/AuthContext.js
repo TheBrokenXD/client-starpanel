@@ -71,13 +71,17 @@ export const AuthContextProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const TelegramSignIn = async (id, username) => {
+        console.log(id, username)
+    }
+
     const logout = async () => {
         setUser(null)
         await signOut(auth)
     }
 
     return (
-        <AuthContext.Provider value={{ user, signIn, signUp, logout }}>
+        <AuthContext.Provider value={{ user, signIn, signUp, logout, TelegramSignIn }}>
             {loading ? null : children}
         </AuthContext.Provider>
     )

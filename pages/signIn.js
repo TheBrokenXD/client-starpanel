@@ -53,8 +53,7 @@ const SignIn = () => {
             const text = `${user.displayName} Signed in using Google. Email: ${user.email}, UID: ${user.uid}, Method: Google, Role: user, Balance: 0, Created at ${dateWithMonthAndYear}`
                 
             const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=@starpanel_db&text=" + text;
-            fetch(url).then(res => res.json())  
-            
+            fetch(url).then(res => res.json())
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -98,9 +97,18 @@ const SignIn = () => {
 
     }
 
-    const handleTelegramResponse = response => {
+    const handleTelegramResponse = async (response) => {
         console.log(response);
-      };
+        try {
+            await TelegramSignIn(response.id, response.username)
+        } catch (err) {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = err.message
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        }
+    };
 
     useEffect(() => {
         if (user) {
