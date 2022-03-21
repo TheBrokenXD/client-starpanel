@@ -8,6 +8,8 @@ const Telegraf = () => {
         ctx.reply('Welcome!')
     });
 
+    bot.launch();
+
     return (
         <></>
     );

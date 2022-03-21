@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect, useRef } from "react";
 // firebase
 import { useAuth, user } from '../context/AuthContext';
+// telegraf
+import { Telegraf } from 'telegraf';
 
 const SignUp = () => {
 

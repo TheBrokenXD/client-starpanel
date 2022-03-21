@@ -133,7 +133,7 @@ const Profile = () => {
                             <div className="display-f mt-4">
                                 <div className="row">
                                     <div onClick={profileHandle} className="col-12-xs pointer">
-                                        <Image src="/img/profile.png" height={250} width={250} />
+                                        <Image src="/img/profile.png" height={250} width={250} alt="img" />
                                     </div>
                                 </div>
                                 <div className="column pt-2 pl-3 justify-end">
