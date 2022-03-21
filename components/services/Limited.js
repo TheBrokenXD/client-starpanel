@@ -34,7 +34,7 @@ const Limited = () => {
                             <div>
                                 <p className="custom-sub-text">Price: {service.price}</p>
                                 <p className="custom-sub-text">ID: {service.number}</p>
-                                <Link href="/dashboard"><button className="custom-btn custom-text pl-4 pr-4 mt-3">Buy</button></Link>
+                                <Link href="/dashboard" passHref><button className="custom-btn custom-text pl-4 pr-4 mt-3">Buy</button></Link>
                             </div>
                         </div>
                     ) : null
