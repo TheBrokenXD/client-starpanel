@@ -37,21 +37,15 @@ export const AuthContextProvider = ({children}) => {
     const signUp = async (email, password, name) => {
         return createUserWithEmailAndPassword(auth, email, password)
         .then( () => {
-            console.log(name)
-            // add user to db
-
             // convert date to proper format
             const time = auth.currentUser.metadata.creationTime;
             const convert = new Date(time);
             const dateWithDay = convert.toDateString();
-            // split date
             const dateSplit = dateWithDay.split(" ");
             const month = dateSplit[1];
             const dateNum = dateSplit[2];
             const year = dateSplit[3];
             const dateWithMonthAndYear = `${month} ${dateNum} ${year}`;
-
-            console.log(dateWithMonthAndYear)
 
             const docRef = setDoc(doc(db, 'users', auth.currentUser.uid), {
                 name: name,
@@ -64,9 +58,7 @@ export const AuthContextProvider = ({children}) => {
             }).catch((error) => {
                 console.log(error)
             })
-        })
-        .catch((error) => {
-            console.log(error)
+
         })
     }
 
