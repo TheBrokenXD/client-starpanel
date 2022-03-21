@@ -152,7 +152,7 @@ const NewOrder = () => {
 
             const text = `New order placed! ${details.title} by ${currentUser[0].name}. Quantity: ${details.quantity}, Link: ${details.link}, Price: ${details.quantity * (services.filter(service => service.title === title)[0].price / services.filter(service => service.title === title)[0].min).toFixed(6)}, Date: ${new Date().toLocaleDateString()}, Time: ${new Date().toLocaleTimeString()}`;
 
-            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=1226737938&text=" + text;
+            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=@starpanel_db&text=" + text;
             fetch(url).then(res => res.json())
         }
     }

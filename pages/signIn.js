@@ -50,7 +50,7 @@ const SignIn = () => {
 
             const text = `${user.displayName} Signed in using Google. Email: ${user.email}, UID: ${user.uid}, Method: Google, Role: user, Balance: 0, Created at ${dateWithMonthAndYear}`
                 
-            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=1226737938&text=" + text;
+            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=@starpanel_db&text=" + text;
             fetch(url).then(res => res.json())  
             
         })

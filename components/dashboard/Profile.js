@@ -215,7 +215,7 @@ const Profile = () => {
                                     </div>
                                     {tickets.map(ticket => {
                                         return(
-                                            ticket.uid == user.uid ? (
+                                            ticket.userId == user.uid ? (
                                                 <>
                                                     <div className="row mt-3">
                                                         <div className="col-3-xs">
