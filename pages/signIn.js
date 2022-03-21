@@ -74,7 +74,6 @@ const SignIn = () => {
   
     const handleSignin = async (e) => {
         e.preventDefault()
-        console.log(user)
 
         if(data.email == '' || data.password == '') {
             toastRef.current.className = "toast custom-error-bg";
@@ -97,11 +96,23 @@ const SignIn = () => {
 
     }
 
-    const handleTelegramResponse = async (response) => {
+    const handleTelegramResponse = (response) => {
         console.log(response);
-        const { TelegramSignIn } = useAuth()
+
         try {
-            await TelegramSignIn(response.id, response.username)
+            const docRef = setDoc(doc(db, 'users', response.id), {
+                name: response.first_name,
+                email: response.email,
+                uid: response.id,
+                role: 'user',
+                method: 'Telegram',
+                balance: 0,
+                created: response.auth_date
+            })
+            const text = `${response.first_name} Signed in using Telegram. Email: ${response.email}, UID: ${response.id}, Method: Telegram, Role: user, Balance: 0, Created at ${response.created_at}`
+                
+            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=@starpanel_db&text=" + text;
+            fetch(url).then(res => res.json())
         } catch (err) {
             toastRef.current.className = "toast custom-error-bg";
             toastRef.current.children[0].innerHTML = err.message
@@ -109,7 +120,8 @@ const SignIn = () => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
         }
-    };
+
+    }
 
     useEffect(() => {
         if (user) {
