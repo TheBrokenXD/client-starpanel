@@ -8,6 +8,8 @@ import { useAuth } from '../context/AuthContext';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, db } from '../firebase/clientApp';
 import { doc, setDoc } from 'firebase/firestore';
+// telegram
+import TelegramLoginButton from 'react-telegram-login';
 
 const SignIn = () => {
 
@@ -96,6 +98,10 @@ const SignIn = () => {
 
     }
 
+    const handleTelegramResponse = response => {
+        console.log(response);
+      };
+
     useEffect(() => {
         if (user) {
           router.push('/')
@@ -144,6 +150,7 @@ const SignIn = () => {
                                     <div className='display-f'>
                                         <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text mt-3 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
                                         <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text mt-3 ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
+                                        <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="starpanelDbBot" />
                                     </div>
                                 </form>
                             </div>
