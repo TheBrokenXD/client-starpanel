@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 // store
 import { collection, doc, onSnapshot, orderBy, query, QuerySnapshot, updateDoc } from "firebase/firestore";
 import { db } from '../../firebase/clientApp';
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const Profile = () => {
 
@@ -83,6 +84,28 @@ const Profile = () => {
         }
     }
 
+    // update password
+    const auth = getAuth();
+    const handlePasswordChange = (e) => {
+        e.preventDefault();
+        sendPasswordResetEmail(auth, user.email)
+        .then(() => {
+                toastRef.current.className = "toast custom-color-bg";
+                toastRef.current.children[0].innerHTML = "Successfully sent password reset email";
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-color-bg"
+                }, 2000)
+            })
+        .catch(() => {
+            toastRef.current.className = "toast custom-error-bg";
+            toastRef.current.children[0].innerHTML = "Error sending password reset email";
+            setTimeout(() => {
+                toastRef.current.className = "toast-hidden custom-error-bg"
+            }, 2000)
+        })
+    }
+
+
     return (
         <>
             {data.map(data => {
@@ -124,7 +147,10 @@ const Profile = () => {
                                                     <p className="custom-text fw-md">Created : <span className="custom-sub-text fw-reg">{data.created}</span></p>
                                                 </div>
                                             </div>
-                                            <button className="custom-btn custom-text mt-3 shadow-base" onClick={handleChange} >Save Changes</button>
+                                            <div className="display-f justify-around mt-3">
+                                                <button className="custom-btn-outlined custom-text shadow-base" onClick={handlePasswordChange}>Change Password</button>
+                                                <button className="custom-btn custom-text shadow-base" onClick={handleChange}>Save Changes</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

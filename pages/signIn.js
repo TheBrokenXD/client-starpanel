@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect, useRef } from "react";
 // firebase
 import { useAuth } from '../context/AuthContext';
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import { auth, db } from '../firebase/clientApp';
 import { doc, setDoc } from 'firebase/firestore';
 // telegram
@@ -96,31 +96,34 @@ const SignIn = () => {
 
     }
 
-    const handleTelegramResponse = (response) => {
-        console.log(response);
-
-        try {
-            const docRef = setDoc(doc(db, 'users', response.id), {
-                name: response.first_name,
-                email: response.email,
-                uid: response.id,
-                role: 'user',
-                method: 'Telegram',
-                balance: 0,
-                created: response.auth_date
-            })
-            const text = `${response.first_name} Signed in using Telegram. Email: ${response.email}, UID: ${response.id}, Method: Telegram, Role: user, Balance: 0, Created at ${response.created_at}`
-                
-            const url = "https://api.telegram.org/bot5255515716:AAHhYyT6t4wybQ-TWVLBEUQg67T6u-2dEeI/sendMessage?chat_id=@starpanel_db&text=" + text;
-            fetch(url).then(res => res.json())
-        } catch (err) {
+    // update password
+    const auth = getAuth();
+    const handlePasswordChange = (e) => {
+        e.preventDefault();
+        if (data.email == '') {
             toastRef.current.className = "toast custom-error-bg";
-            toastRef.current.children[0].innerHTML = err.message
+            toastRef.current.children[0].innerHTML = "To change password, please enter your email"
             setTimeout(() => {
                 toastRef.current.className = "toast-hidden custom-error-bg"
             }, 2000)
         }
-
+        else {
+            sendPasswordResetEmail(auth, data.email)
+            .then(() => {
+                    toastRef.current.className = "toast custom-color-bg";
+                    toastRef.current.children[0].innerHTML = "Successfully sent password reset email";
+                    setTimeout(() => {
+                        toastRef.current.className = "toast-hidden custom-color-bg"
+                    }, 2000)
+                })
+            .catch(() => {
+                toastRef.current.className = "toast custom-error-bg";
+                toastRef.current.children[0].innerHTML = "Please enter a registered email";
+                setTimeout(() => {
+                    toastRef.current.className = "toast-hidden custom-error-bg"
+                }, 2000)
+            })
+        }
     }
 
     useEffect(() => {
@@ -168,12 +171,12 @@ const SignIn = () => {
                                             onChange={e => setData({ ...data, password: e.target.value })}
                                         />
                                     </div>
-                                    <div className='display-f align-i-center mt-3'>
-                                        <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
-                                        <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
-                                        <div className='ml-2'>
-                                            <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="starpanelDbBot" />
+                                    <div className='display-f align-i-center justify-between mt-3'>
+                                        <div className='display-f align-i-center'>
+                                            <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
+                                            <button onClick={handlePasswordChange} className="custom-btn-outlined br-full custom-text ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Forgot Password?</button>
                                         </div>
+                                        <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
                                     </div>
                                 </form>
                             </div>
