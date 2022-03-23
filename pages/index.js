@@ -35,7 +35,12 @@ export default function Home() {
       <div className="container">
 
         <div>
-          <motion.p initial={{ x: -200 }} animate={{ x: 0 }} ref={titleRef} className='font-xl-8 fw-md custom-text mt-6 display-f justify-between align-i-baseline'><span>..</span><span>starpanel.</span></motion.p>
+          <motion.p initial={{ x: -200 }} animate={{ x: 0 }} ref={titleRef} className='font-xl-8 fw-md custom-text mt-6 display-f justify-between align-i-baseline lg-display-f xs-display-n'>
+            <span>..</span><span>starpanel.</span>
+          </motion.p>
+          <div className='font-xl-8 fw-md custom-text mt-6 display-f justify-end align-i-baseline xs-display-f lg-display-n md-justify-end md-font-xl-8 sm-font-xl-7 sm-justify-center'>
+            <span>starpanel.</span>
+          </div>
           <p className='font-lg max-w-560-px custom-sub-text mt-200-px'>One of the most affordable and high-quality SMM services on the market. We would be delighted to assist you in spreading the word about your company, increasing its visibility, and attracting new customers.</p>
           <Link href="/signUp" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Create an account</button></Link>
         </div>
