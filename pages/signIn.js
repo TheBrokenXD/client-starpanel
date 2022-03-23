@@ -8,8 +8,6 @@ import { useAuth } from '../context/AuthContext';
 import { getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import { auth, db } from '../firebase/clientApp';
 import { doc, setDoc } from 'firebase/firestore';
-// telegram
-import TelegramLoginButton from 'react-telegram-login';
 
 const SignIn = () => {
 

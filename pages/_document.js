@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html className='smooth' style={{scrollBehavior:'smooth'}}>
+    <Html>
       <Head />
       <body className='custom-main-bg overflow-x-hidden'>
         <Main />

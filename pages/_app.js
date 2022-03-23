@@ -12,6 +12,8 @@ import { useRouter } from 'next/router'
 // auth
 import ProtectedRoute from '../components/ProtectedRoute'
 import { RecoilRoot } from 'recoil';
+// theme
+import { ThemeProvider } from 'next-themes'
 
 const noAuthRequired = ['/', '/signIn', '/signUp', '/services']
 
@@ -21,17 +23,19 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <AuthContextProvider>
-      <Layout>
-        {noAuthRequired.includes(router.pathname) ? (
-          <Component {...pageProps} />
-        ): (
-          <ProtectedRoute>
-            <RecoilRoot>
-              <Component {...pageProps} />
-            </RecoilRoot>
-          </ProtectedRoute>
-        )}
-      </Layout>
+      <ThemeProvider defaultTheme="dark">
+        <Layout>
+          {noAuthRequired.includes(router.pathname) ? (
+            <Component {...pageProps} />
+          ): (
+            <ProtectedRoute>
+              <RecoilRoot>
+                <Component {...pageProps} />
+              </RecoilRoot>
+            </ProtectedRoute>
+          )}
+        </Layout>
+      </ ThemeProvider>
     </AuthContextProvider>
   )
 }

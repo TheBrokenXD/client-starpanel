@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 // assets
 import Lottie from "lottie-react";
@@ -7,8 +7,22 @@ import { useAuth } from "../context/AuthContext";
 import { Router, useRouter } from "next/router";
 // framer motion
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
+
+  // theme
+  const {theme, setTheme} = useTheme()
+
+  const changeTheme = () => {
+    if(theme == 'dark') {
+      setTheme('light')
+      console.log('light')
+    } else {
+      setTheme('dark')
+      console.log('dark')
+    }
+  }
 
   const lottieRef = useRef();
   const animationData = useRef();
@@ -41,9 +55,12 @@ const Navbar = () => {
 
       <div className="nav-content">
         <Link href="/" passHref><p className="nav-brand custom-text unselectable">Starpanel.</p></Link>
-        <div className="nav-burger">
-          <div className="lottie" onClick={handleClick} >
-            <Lottie lottieRef={lottieRef} animationData={Data} loop={false} autoplay={false} />
+        <div className="display-f align-i-center">
+          <button className="custom-btn-rounded font-xs custom-text mr-2 xl-display-n" onClick={changeTheme} >theme</button>
+          <div className="nav-burger">
+            <div className="lottie" onClick={handleClick} >
+              <Lottie lottieRef={lottieRef} animationData={Data} loop={false} autoplay={false} />
+            </div>
           </div>
         </div>
       </div>

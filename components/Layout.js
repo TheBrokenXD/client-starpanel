@@ -1,5 +1,4 @@
 import Navbar from "./Navbar";
-import Footer from "./Footer";
 import { Router, router, useRouter } from "next/dist/client/router";
 import NProgress from "nprogress";
 
@@ -20,7 +19,6 @@ const Layout = ({ children }) => {
         {/* {showNav && <Navbar />} */}
         <Navbar />
         { children }
-        {/* <Footer /> */}
 
       </>
     );
