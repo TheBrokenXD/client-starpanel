@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="nav-content">
         <Link href="/" passHref><p className="nav-brand custom-text unselectable">Starpanel.</p></Link>
         <div className="display-f align-i-center">
-          <button className="custom-btn-rounded font-xs custom-text mr-2 xl-display-n" onClick={changeTheme} >theme</button>
+          <button className="custom-btn-rounded font-xs custom-text mr-2 xs-display-n" onClick={changeTheme} >theme</button>
           <div className="nav-burger">
             <div className="lottie" onClick={handleClick} >
               <Lottie lottieRef={lottieRef} animationData={Data} loop={false} autoplay={false} />

@@ -8,15 +8,15 @@ const Main = () => {
             {/* card-1 */}
 
             <div className='card black-bg custom-card-bg-gradient p-3 mt-5 ml-3 mr-3'>
-                <div className="display-f align-i-center">
+                <div className="display-f align-i-center bp-index-service">
                     <div className="xl-display-b xs-display-n">
                         <div className="pl-2 pr-2">
                             <Image src="/svg/services.svg" height={300} width={300} alt="img" />
                         </div>
                     </div>
-                    <div className="pl-3 xxxl-pl-4">
+                    <div className="pl-3 xxxl-pl-4 bp-index-service-content">
                         <h1 className='font-xl-2 custom-text xl-font-xl'>Services</h1>
-                        <p className='font-md custom-sub-text mt-2 xxxl-font-lg xl-font-md xl-display-b xs-display-n'>Our first objective is to increase the visibility of your brand and cultivate a customer base for you. It is important to us that the services offered by our panel are reasonably priced. Adding money to your account is simple and convenient. Delivery of your purchase will be swift, as you will discover.</p>
+                        <p className='xl-font-md custom-sub-text mt-2 xxxl-font-lg xl-display-b xs-display-n'>Our first objective is to increase the visibility of your brand and cultivate a customer base for you. It is important to us that the services offered by our panel are reasonably priced. Adding money to your account is simple and convenient. Delivery of your purchase will be swift, as you will discover.</p>
                         <Link href="/services" passHref><button className='custom-btn-rounded custom-text shadow-base mt-2 xxxl-mt-3 xxxl-pl-4 xxxl-pr-4 xxxl-font-md'>View Services</button></Link>
                     </div>
                 </div>
@@ -68,13 +68,13 @@ const Main = () => {
 
             {/* card-3 */}
 
-            <div className='card black-bg custom-card-bg-gradient display-f align-i-center justify-between mt-4 ml-3 mr-3 mb-3 p-3'>
+            <div className='card black-bg custom-card-bg-gradient display-f md-flex-dir-row md-align-i-center md-justify-between mt-4 ml-3 mr-3 mb-3 p-3 xs-flex-dir-column xs-justify-center xs-align-i-center'>
                 <div>
-                    <h1 className='font-xl-2 custom-text'>Ready to dive in?</h1>
-                    <p className='font-lg custom-sub-text pt-1'>Register for free now!</p>
+                    <h1 className='font-xl-2 custom-text md-text-left xs-text-center bp-index-card3-h'>Ready to dive in?</h1>
+                    <p className='font-lg custom-sub-text pt-1 md-text-left xs-text-center bp-index-card3-p'>Register for free now!</p>
                 </div>
                 <div>
-                    <Link href="/signUp" passHref><button className="custom-btn-rounded custom-text shadow-base pl-5 pr-5 pt-2 pb-2">Sign up</button></Link>
+                    <Link href="/signUp" passHref><button className="custom-btn-rounded custom-text shadow-base pl-5 pr-5 pt-2 pb-2 md-mt-0 xs-mt-2">Sign up</button></Link>
                 </div>
             </div>
 

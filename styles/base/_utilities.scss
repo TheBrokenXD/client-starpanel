@@ -77,6 +77,13 @@ $utilities: (
 
   // flexbox and grid
 
+  "flex-direction": (
+    "prefix": "flex-dir",
+    "values": (
+      "row": row,
+      "column": column,
+    )
+  ),
   "justify-content": (
     "prefix": "justify",
     "values": (

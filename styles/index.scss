@@ -155,3 +155,44 @@
     }
 }
 
+@media (max-width: 767px) {
+    .bp-index-service {
+        display: flex;
+        .bp-index-service-content {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding-left: 0;
+        }
+    }
+    .bp-index-card3-h {
+        font-size: clamp(2rem, 7.8vw, 2.75rem);
+    }
+    .bp-index-card3-p {
+        font-size: clamp(1rem, 3.12vw, 1.5rem);
+    }
+}
+
+@media (max-width: 520px) {
+    .bp-index-service {
+        display: flex;
+        .bp-index-service-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .bp-index-service {
+        display: flex;
+        .bp-index-service-content {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+        }
+    }
+}

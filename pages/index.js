@@ -35,13 +35,18 @@ export default function Home() {
       <div className="container">
 
         <div>
-          <motion.p initial={{ x: -200 }} animate={{ x: 0 }} ref={titleRef} className='font-xl-8 fw-md custom-text mt-6 display-f justify-between align-i-baseline lg-display-f xs-display-n'>
-            <span>..</span><span>starpanel.</span>
+          <motion.p initial={{ x: -200 }} animate={{ x: 0 }} ref={titleRef} className='lg-display-f justify-between align-i-baseline mt-6 xs-display-n'>
+            <span className='font-xl-8 fw-md custom-text'>..</span><span className='font-xl-8 fw-md custom-text'>starpanel.</span>
           </motion.p>
-          <div className='font-xl-8 fw-md custom-text mt-6 display-f justify-end align-i-baseline xs-display-f lg-display-n md-justify-end md-font-xl-8 sm-font-xl-7 sm-justify-center'>
-            <span>starpanel.</span>
+          <div className='md-display-f justify-end align-i-baseline mt-6 lg-display-n xs-display-n'>
+            <span className='font-xl-8 fw-md custom-text'>starpanel.</span>
           </div>
-          <p className='font-lg max-w-560-px custom-sub-text mt-200-px'>One of the most affordable and high-quality SMM services on the market. We would be delighted to assist you in spreading the word about your company, increasing its visibility, and attracting new customers.</p>
+          <div className='md-display-f justify-start mt-200-px xs-display-n'>
+            <p className='max-w-560-px font-lg custom-sub-text'>One of the most affordable and high-quality SMM services on the market. We would be delighted to assist you in spreading the word about your company, increasing its visibility, and attracting new customers.</p>
+          </div>
+          <div className='display-f justify-start mt-8 md-display-n'>
+            <p className='max-w-80p font-lg custom-sub-text'>One of the best value SMM services available. We would be happy to help you promote your business, increase its exposure, and attract new clients.</p>
+          </div>
           <Link href="/signUp" passHref><button className='custom-btn-rounded custom-text mt-2 pl-5 pr-5 pt-2 pb-2'>Create an account</button></Link>
         </div>
 
