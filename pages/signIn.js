@@ -149,7 +149,7 @@ const SignIn = () => {
                     <div className="card custom-card-bg-gradient justify-between br-md p-3">
                         
                         <div className="row">
-                            <div className="col-9-xs column justify-center form-border-right">
+                            <div className="col-9-xl col-12-xs column justify-center form-border-right">
                                 <form className=''>
                                     <div className="column">
                                         <label className='custom-sub-text fw-md' htmlFor="email">Email</label>
@@ -169,17 +169,17 @@ const SignIn = () => {
                                             onChange={e => setData({ ...data, password: e.target.value })}
                                         />
                                     </div>
-                                    <div className='display-f align-i-center justify-between mt-3'>
+                                    <div className='display-f lg-flex-dir-row align-i-center justify-between mt-3 xs-flex-dir-column'>
                                         <div className='display-f align-i-center'>
                                             <button type="submit" onClick={handleSignin} className="custom-btn-rounded custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In</button>
                                             <button onClick={handlePasswordChange} className="custom-btn-outlined br-full custom-text ml-2 pl-5 pr-5 pt-2 pb-2 shadow-base">Forgot Password?</button>
                                         </div>
-                                        <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign In with Google</button>
+                                        <button onClick={signInWithGoogle} className="custom-btn-outlined br-full custom-text pl-5 pr-5 pt-2 pb-2 shadow-base lg-mt-0 xs-mt-3">Sign In with Google</button>
                                     </div>
                                 </form>
                             </div>
 
-                            <div className='col-3-xs column align-i-end justify-center'>
+                            <div className='col-3-xl column align-i-end justify-center xl-display-f xs-display-n'>
                                 <p className='font-xl fw-bold custom-text'>Sign In</p>
                                 <Link href="/signUp" passHref><p className='custom-sub-text pt-2 display-f align-i-center'>Not an user? <button className='custom-btn-rounded ml-2 shadow-base'>Sign Up</button></p></Link>
                             </div>

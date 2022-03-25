@@ -155,6 +155,19 @@
     }
 }
 
+// custom media queries
+
+@media (max-width: 1439px) {
+    .form-border-right {
+        border-right: none;
+        padding-right: 0;
+    }
+}
+
+// @media (max-width: 920px) {
+
+// }
+
 @media (max-width: 767px) {
     .bp-index-service {
         display: flex;
@@ -173,7 +186,7 @@
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 580px) {
     .bp-index-service {
         display: flex;
         .bp-index-service-content {
@@ -183,6 +196,12 @@
             padding-left: 0;
             text-align: center;
         }
+    }
+    .bp-index-use-h {
+        font-size: clamp(30px, 7vw, 50px);
+    }
+    .bp-index-use-p {
+        font-size: clamp(18px, 4.6vw, 35px);
     }
 }
 
@@ -195,4 +214,14 @@
             padding-left: 0;
         }
     }
+}
+
+// classess to neglect large number of classes being generated
+
+.max-w-560-px {
+    max-width: 560px;
+}
+
+.mt-200-px {
+    margin-top: 200px;
 }

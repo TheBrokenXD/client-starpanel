@@ -30,22 +30,22 @@ const ServiceList = () => {
         <div>
 
             <div className="row p-4 gap-1">
-                <div className="col-3-xs">
+                <div className="col-3-md col-6-sm col-12-xs">
                     <Link href="#one" passHref><div className="card custom-card-bg-gradient p-2 pointer">
                         <h1 className="custom-text fw-md">Social</h1>
                     </div></Link>
                 </div>
-                <div className="col-3-xs">
+                <div className="col-3-md col-6-sm col-12-xs">
                     <Link href="#two" passHref><div className="card custom-card-bg-gradient p-2 pointer">
                         <h1 className="custom-text fw-md">Web</h1>
                     </div></Link>
                 </div>
-                <div className="col-3-xs">
+                <div className="col-3-md col-6-sm col-12-xs">
                     <Link href="#three" passHref><div className="card custom-card-bg-gradient p-2 pointer">
                         <h1 className="custom-text fw-md">Telegram</h1>
                     </div></Link>
                 </div>
-                <div className="col-3-xs">
+                <div className="col-3-md col-6-sm col-12-xs">
                     <Link href="#four" passHref><div className="card custom-card-bg-gradient p-2 pointer">
                         <h1 className="custom-text fw-md">Premium</h1>
                     </div></Link>
@@ -62,12 +62,12 @@ const ServiceList = () => {
                         </div>
                         
                         <div className="row">
-                            <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Max</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
+                            <div className="col-1-lg lg-display-b xs-display-n custom-text"><h3>ID</h3></div>
+                            <div className="col-5-lg col-7-xs custom-text"><h3>Title</h3></div>
+                            <div className="col-1-lg col-1-xs custom-text"><h3>Price</h3></div>
+                            <div className="col-1-lg col-1-xs custom-text"><h3>Min</h3></div>
+                            <div className="col-2-lg col-2-xs custom-text"><h3>Max</h3></div>
+                            <div className="col-2-lg col-1-xs custom-text"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
@@ -83,12 +83,12 @@ const ServiceList = () => {
                                 service.category === "social" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center pt-2">
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-2-xs">
+                                            <div className="col-1-lg lg-display-b xs-display-n"><p className="custom-sub-text">{service.number}</p></div>
+                                            <div className="col-5-lg col-7-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-2-lg col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
+                                            <div className="col-2-lg col-1-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
@@ -124,12 +124,12 @@ const ServiceList = () => {
                         </div>
                         
                         <div className="row">
-                            <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Max</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
+                            <div className="col-1-lg custom-text lg-display-b xs-display-n"><h3>ID</h3></div>
+                            <div className="col-5-lg custom-text col-7-xs"><h3>Title</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Price</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Min</h3></div>
+                            <div className="col-2-lg custom-text col-2-xs"><h3>Max</h3></div>
+                            <div className="col-2-lg custom-text col-1-xs"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
@@ -145,12 +145,12 @@ const ServiceList = () => {
                                 service.category === "web" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center pt-2">
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-2-xs">
+                                            <div className="col-1-lg lg-display-b xs-display-n"><p className="custom-sub-text">{service.number}</p></div>
+                                            <div className="col-5-lg col-7-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-2-lg col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
+                                            <div className="col-2-lg col-1-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
@@ -186,12 +186,12 @@ const ServiceList = () => {
                         </div>
                         
                         <div className="row">
-                            <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Max</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
+                            <div className="col-1-lg custom-text lg-display-b xs-display-n"><h3>ID</h3></div>
+                            <div className="col-5-lg custom-text col-7-xs"><h3>Title</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Price</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Min</h3></div>
+                            <div className="col-2-lg custom-text col-2-xs"><h3>Max</h3></div>
+                            <div className="col-2-lg custom-text col-1-xs"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
@@ -207,12 +207,12 @@ const ServiceList = () => {
                                 service.category === "telegram" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center pt-2">
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-2-xs">
+                                            <div className="col-1-lg lg-display-b xs-display-n"><p className="custom-sub-text">{service.number}</p></div>
+                                            <div className="col-5-lg col-7-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-2-lg col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
+                                            <div className="col-2-lg col-1-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>
@@ -248,12 +248,12 @@ const ServiceList = () => {
                         </div>
                         
                         <div className="row">
-                            <div className="col-1-xs custom-text"><h3>ID</h3></div>
-                            <div className="col-5-xs custom-text"><h3>Title</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Price</h3></div>
-                            <div className="col-1-xs custom-text"><h3>Min</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Max</h3></div>
-                            <div className="col-2-xs custom-text"><h3>Desc.</h3></div>
+                            <div className="col-1-lg custom-text lg-display-b xs-display-n"><h3>ID</h3></div>
+                            <div className="col-5-lg custom-text col-7-xs"><h3>Title</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Price</h3></div>
+                            <div className="col-1-lg custom-text col-1-xs"><h3>Min</h3></div>
+                            <div className="col-2-lg custom-text col-2-xs"><h3>Max</h3></div>
+                            <div className="col-2-lg custom-text col-1-xs"><h3>Desc.</h3></div>
                         </div>
 
                         {services.map(service => {
@@ -269,12 +269,12 @@ const ServiceList = () => {
                                 service.category === "premium" ? (
                                     <>
                                         <div key={service.id} className="row align-i-center pt-2">
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.number}</p></div>
-                                            <div className="col-5-xs"><p className="custom-sub-text">{service.title}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
-                                            <div className="col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
-                                            <div className="col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
-                                            <div className="col-2-xs">
+                                            <div className="col-1-lg lg-display-b xs-display-n"><p className="custom-sub-text">{service.number}</p></div>
+                                            <div className="col-5-lg col-7-xs"><p className="custom-sub-text">{service.title}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.price}</p></div>
+                                            <div className="col-1-lg col-1-xs"><p className="custom-sub-text">{service.min}</p></div>
+                                            <div className="col-2-lg col-2-xs"><p className="custom-sub-text">{service.max}</p></div>
+                                            <div className="col-2-lg col-1-xs">
                                                 <p className="custom-text pointer" onClick={descHandle}>
                                                     <Image src="/svg/services/description.svg" height={30} width={30} alt="icon" />
                                                 </p>

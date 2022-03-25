@@ -29,15 +29,17 @@ const Services = () => {
         <div className="container">
 
             <div className="row align-i-center h-screen">
-                <div className='col-1-xs column align-i-center'>
-                    <div className='pointer' onClick={homeClick}>
-                        <Image src="/svg/services/home.svg" height={62} width={62} alt="icon" />
-                    </div>
-                    <div className='mt-2 pointer' onClick={saleClick}>
-                        <Image src="/svg/services/sale.svg" height={50} width={50} alt="icon" />
+                <div className='col-1-lg col-12-xs'>
+                    <div className='display-f lg-flex-dir-column align-i-center lg-mt-0 xs-flex-dir-row xs-justify-center xs-mt-4'>
+                        <div className='pointer' onClick={homeClick}>
+                            <Image src="/svg/services/home.svg" height={62} width={62} alt="icon" />
+                        </div>
+                        <div className='mt-2 pointer' onClick={saleClick}>
+                            <Image src="/svg/services/sale.svg" height={50} width={50} alt="icon" />
+                        </div>
                     </div>
                 </div>
-                <div ref={compRef} className='col-11-xs card custom-card-bg row justify-center align-i-center min-h-third max-h-third overflow-y-scroll p-0'>
+                <div ref={compRef} className='col-11-lg col-12-xs card custom-card-bg row justify-center align-i-center min-h-third max-h-third overflow-y-scroll p-0'>
                     <div className=''><ServiceList /></div>
                     <div className='hidden'><Limited /></div>
                 </div>

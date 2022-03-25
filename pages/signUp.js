@@ -76,7 +76,7 @@ const SignUp = () => {
                     <div className="card custom-card-bg-gradient justify-between br-md p-3">
                         
                         <div className="row">
-                            <div className="col-9-xs column justify-center form-border-right">
+                            <div className="col-9-xl col-12-xs column justify-center form-border-right">
                                 <form className=''>
                                     <div className="column">
                                         <label className='custom-sub-text fw-md' htmlFor="displayName">Display Name</label>
@@ -105,11 +105,13 @@ const SignUp = () => {
                                             onChange={e => setData({ ...data, password: e.target.value })}
                                         />
                                     </div>
-                                    <button type="submit" onClick={handleSignup} className="custom-btn-rounded custom-text mt-3 pl-5 pr-5 pt-2 pb-2 shadow-base">Sign Up</button>
+                                    <div className='mt-3 xl-display-b xs-display-f xl-justify-left xs-justify-center'>
+                                        <button type="submit" onClick={handleSignup} className="custom-btn-rounded custom-text pl-5 pr-5 pt-2 pb-2 shadow-base">Sign Up</button>
+                                    </div>
                                 </form>
                             </div>
 
-                            <div className='col-3-xs column align-i-end justify-center'>
+                            <div className='col-3-xl column align-i-end justify-center xl-display-f xs-display-n'>
                                 <p className='font-xl fw-bold custom-text'>Sign Up</p>
                                 <Link href="/signIn" passHref><p className='custom-sub-text pt-2 display-f align-i-center'>Already an user? <button className='custom-btn-rounded ml-2 shadow-base'>Sign In</button></p></Link>
                             </div>

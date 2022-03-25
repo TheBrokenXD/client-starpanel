@@ -25,8 +25,8 @@ const Main = () => {
             {/* card-2 */}
 
             <div className="mt-5">
-                <h1 className='font-xl custom-text text-center'>How to use?</h1>
-                <p className='font-lg custom-sub-text text-center m-auto mt-1'>You can simply create your order by following the steps below.</p>
+                <h1 className='font-xl custom-text text-center bp-index-use-h'>How to use?</h1>
+                <p className='font-lg custom-sub-text text-center m-auto mt-1 bp-index-use-p'>You can simply create your order by following the steps below.</p>
                 
                 <div className="row justify-center mt-4 gap-2 ml-5 mr-5">
 

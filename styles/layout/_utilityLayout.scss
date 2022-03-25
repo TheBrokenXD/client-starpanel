@@ -20,59 +20,59 @@
 // dont even think about uncommenting this unless u wanna wait for a day to purge css
 
 // utility classes with pixels
-@for $i from 1 through 560 {
-    @each $value, $breakpoint in $breakpoints {
-        @media (min-width: $breakpoint) {
+// @for $i from 1 through 560 {
+//     @each $value, $breakpoint in $breakpoints {
+//         @media (min-width: $breakpoint) {
 
-              .#{$value}-p-#{$i}-px {
-                padding: #{$i}px;
-               }
-              .#{$value}-pl-#{$i}-px {
-                padding-left: #{$i}px;
-              }
-              .#{$value}-pr-#{$i}-px {
-                padding-right: #{$i}px;
-              }
-              .#{$value}-pt-#{$i}-px {
-                padding-top: #{$i}px;
-              }
-              .#{$value}-pb-#{$i}-px {
-                padding-bottom: #{$i}px;
-              }
-              .#{$value}-m-#{$i}-px {
-                margin: #{$i}px;
-              }
-              .#{$value}-ml-#{$i}-px {
-                margin-left: #{$i}px;
-              }
-              .#{$value}-mr-#{$i}-px {
-                margin-right: #{$i}px;
-              }
-              .#{$value}-mt-#{$i}-px {
-                margin-top: #{$i}px;
-              }
-              .#{$value}-mb-#{$i}-px {
-                margin-bottom: #{$i}px;
-              }
-              .#{$value}-min-w-#{$i}-px {
-                min-width: #{$i}px;
-              }
-              .#{$value}-min-h-#{$i}-px {
-                min-height: #{$i}px;
-              }
-              .#{$value}-max-w-#{$i}-px {
-                max-width: #{$i}px;
-              }
-              .#{$value}-max-h-#{$i}-px {
-                max-height: #{$i}px;
-              }
-              .#{$value}-w-#{$i}-px {
-                width: #{$i}px;
-              }
-              .#{$value}-h-#{$i}-px {
-                height: #{$i}px;
-              }
+//               .#{$value}-p-#{$i}-px {
+//                 padding: #{$i}px;
+//                }
+//               .#{$value}-pl-#{$i}-px {
+//                 padding-left: #{$i}px;
+//               }
+//               .#{$value}-pr-#{$i}-px {
+//                 padding-right: #{$i}px;
+//               }
+//               .#{$value}-pt-#{$i}-px {
+//                 padding-top: #{$i}px;
+//               }
+//               .#{$value}-pb-#{$i}-px {
+//                 padding-bottom: #{$i}px;
+//               }
+//               .#{$value}-m-#{$i}-px {
+//                 margin: #{$i}px;
+//               }
+//               .#{$value}-ml-#{$i}-px {
+//                 margin-left: #{$i}px;
+//               }
+//               .#{$value}-mr-#{$i}-px {
+//                 margin-right: #{$i}px;
+//               }
+//               .#{$value}-mt-#{$i}-px {
+//                 margin-top: #{$i}px;
+//               }
+//               .#{$value}-mb-#{$i}-px {
+//                 margin-bottom: #{$i}px;
+//               }
+//               .#{$value}-min-w-#{$i}-px {
+//                 min-width: #{$i}px;
+//               }
+//               .#{$value}-min-h-#{$i}-px {
+//                 min-height: #{$i}px;
+//               }
+//               .#{$value}-max-w-#{$i}-px {
+//                 max-width: #{$i}px;
+//               }
+//               .#{$value}-max-h-#{$i}-px {
+//                 max-height: #{$i}px;
+//               }
+//               .#{$value}-w-#{$i}-px {
+//                 width: #{$i}px;
+//               }
+//               .#{$value}-h-#{$i}-px {
+//                 height: #{$i}px;
+//               }
 
-        }
-    }
-}
+//         }
+//     }
+// }
